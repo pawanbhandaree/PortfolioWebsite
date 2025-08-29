@@ -1,0 +1,487 @@
+<!--
+    File: portfolio_with_form_and_tutorials.html
+    Description: An enhanced professional portfolio for Pawan Bhandari,
+    featuring a functional contact form, detailed project descriptions, and a
+    dedicated section for educational tutorials and notes.
+
+    Author: Gemini
+    For: Pawan Bhandari, BCA Student
+-->
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pawan Bhandaree - Professional Portfolio</title>
+    <!-- Google Fonts - Inter for a modern, clean look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN for a robust and responsive design system -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for social media and icon links -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+
+
+
+        }
+        .hero-pattern {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+        }
+        /* Styling for the education timeline */
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -1rem;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background-color: #d1d5db; /* Light gray line */
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: -1.5rem;
+            top: 0;
+            width: 1rem;
+            height: 1rem;
+            background-color: #3b82f6; /* Blue dot */
+            border: 2px solid #93c5fd; /* Lighter blue border */
+            border-radius: 50%;
+        }
+        /* Custom spinner for loading state */
+        .spinner {
+            display: inline-block;
+            border: 2px solid white;
+            border-top: 2px solid transparent;
+            border-radius: 50%;
+            width: 1.25rem;
+            height: 1.25rem;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- Header & Navigation -->
+    <header class="bg-white fixed top-0 left-0 w-full z-50 shadow-md">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="flex items-center space-x-2">
+                <img src="https://placehold.co/40x40/007bff/ffffff?text=PB" alt="PB Icon" class="h-10 w-auto rounded-lg">
+                <span class="text-2xl font-bold text-gray-900"></span>
+            </a>
+            <div class="space-x-4 flex items-center">
+                <div class="space-x-4 hidden md:flex">
+                    <a href="#home" class="text-gray-600 hover:text-gray-900 transition-colors font-medium">Home</a>
+                    <a href="#about" class="text-gray-600 hover:text-gray-900 transition-colors font-medium">About</a>
+                    <a href="#education" class="text-gray-600 hover:text-gray-900 transition-colors font-medium">Education</a>
+                    <a href="#skills" class="text-gray-600 hover:text-gray-900 transition-colors font-medium">Skills</a>
+                    <a href="#projects" class="text-gray-600 hover:text-gray-900 transition-colors font-medium">Projects</a>
+                    <a href="#tutorials" class="text-gray-600 hover:text-gray-900 transition-colors font-medium">Tutorials</a>
+                </div>
+                <a href="#contact" class="px-5 py-2 text-sm bg-blue-600 text-white rounded-md font-semibold hover:bg-blue-700 transition-colors shadow-md">Get In Touch</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="pt-20">
+        <!-- Hero Section -->
+        <section id="home" class="container mx-auto px-6 py-20 min-h-screen flex items-center justify-center">
+            <div class="bg-white rounded-2xl p-8 sm:p-12 shadow-2xl max-w-7xl w-full flex flex-col md:flex-row items-center justify-between relative overflow-hidden">
+                <div class="text-center md:text-left md:w-1/2 mb-10 md:mb-0 z-10">
+                    <p class="text-sm text-blue-600 font-semibold mb-2">GET EVERY SINGLE SOLUTION.</p>
+                    <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-4">I'm a Developer<br>Pawan Bhandari.</h1>
+                    <p class="text-base text-gray-600 max-w-lg mx-auto md:mx-0 leading-relaxed mb-6">
+                        I'm a dedicated BCA student passionate about creating clean, efficient, and user-friendly web solutions that solve real-world problems.
+                    </p>
+                    <div class="flex justify-center md:justify-start space-x-4">
+                        <a href="Personal Profile pp.pdf" class="px-6 py-3 bg-red-500 text-white rounded-md font-semibold hover:bg-red-600 transition-colors shadow-md">Learn More</a>
+                        <a href="#contact" class="px-6 py-3 border border-gray-300 text-gray-700 rounded-md font-semibold hover:bg-gray-100 transition-colors">Hire Me</a>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 flex justify-center z-10">
+                    <img src="profile-pic.png" alt="Pawan Bhandari" class="rounded-lg w-full max-w-md h-auto shadow-xl">
+                </div>
+                <!-- Subtle wave pattern from the design -->
+                <svg class="hero-pattern z-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+                    <path fill="#f3f4f6" fill-opacity="1" d="M0,64L80,80C160,96,320,128,480,128C640,128,800,96,960,106.7C1120,117,1280,171,1360,197.3L1440,224L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
+                </svg>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="container mx-auto px-6 py-20">
+            <h2 class="text-4xl font-bold text-center mb-8">About Me</h2>
+            <div class="bg-white rounded-2xl p-8 shadow-md border border-gray-200 max-w-4xl mx-auto">
+               <p class="text-lg text-gray-600 leading-relaxed mb-4">
+    My name is Pawan Bhandaree, a Bachelor of Computer Application (BCA) 6th Semester student under Tribhuvan University, Faculty of Humanities & Social Sciences. I am passionate about exploring the vast world of Information Technology, with a particular focus on building innovative and efficient web solutions. My academic journey has strengthened my interest in software development, web technologies, and problem-solving through IT.
+</p>
+<p class="text-lg text-gray-600 leading-relaxed">
+    I strongly believe in the impact of technology to transform ideas into reality. With a dedication to clean code, scalable systems, and modern development practices, I aim to contribute to the digital world by creating practical solutions that address real-world challenges. This portfolio highlights my projects, skills, and vision as I continue to grow in the IT field.
+</p>
+
+            </div>
+        </section>
+<!-- Education Section -->
+<section id="education" class="container mx-auto px-6 py-20">
+  <h2 class="text-4xl font-bold text-center mb-8">My Academic Journey</h2>
+  <div class="bg-white rounded-2xl p-8 shadow-md border border-gray-200 max-w-4xl mx-auto">
+    <div class="relative space-y-8 pl-8 md:pl-16">
+
+      <!-- Example 1 -->
+      <div class="timeline-item relative">
+        <h3 class="text-xl font-bold text-blue-600">Bachelor of Computer Application (BCA)</h3>
+        <p class="text-gray-600">Tribhuvan University - Mechi Multiple Campus, Bhadrapur, Jhapa, Nepal</p>
+        <p class="text-sm italic text-gray-500">2022 - Present</p>
+        <ul class="list-disc list-inside mt-2 space-y-1 text-sm text-gray-700">
+          <li>Learning computer science fundamentals such as programming, networking, and database systems.</li>
+          <li>Hands-on practice with languages like C, C#, JavaScript, and Python with focus on OOP.</li>
+          <li>Building academic and personal projects in web development and software applications.</li>
+        </ul>
+      </div>
+
+      <!-- Example 2 -->
+      <div class="timeline-item relative">
+        <h3 class="text-xl font-bold text-blue-600">High School +2 (Management)</h3>
+        <p class="text-gray-600">National Examination Board (NEB) - Devi Secondary School, Birtamode, Jhapa, Nepal</p>
+        <p class="text-sm italic text-gray-500">2019 - 2021</p>
+        <ul class="list-disc list-inside mt-2 space-y-1 text-sm text-gray-700">
+          <li>Focused on subjects like Computer, Economics, and Accounting alongside core management courses.</li>
+          <li>Strengthened analytical, financial, and organizational skills essential for higher studies.</li>
+          <li>Built a strong foundation for pursuing IT and management-related careers.</li>
+        </ul>
+      </div>
+
+      <!-- Example 3 -->
+      <div class="timeline-item relative">
+        <h3 class="text-xl font-bold text-blue-600">Secondary Education (SEE)</h3>
+        <p class="text-gray-600">National Examination Board (NEB) - Birendra Secondary School, Phungling, Taplejung, Nepal</p>
+        <p class="text-sm italic text-gray-500">2018-2020</p>
+        <ul class="list-disc list-inside mt-2 space-y-1 text-sm text-gray-700">
+          <li>Completed the School Leaving Certificate (SEE) with core subjects like English, Math, Science, and Social Studies.</li>
+          <li>Gained fundamental knowledge of grammar, problem-solving, and scientific principles.</li>
+          <li>Prepared academic base for higher secondary (+2) management program.</li>
+        </ul>
+      </div>
+
+      <!-- Example 4 -->
+      <div class="timeline-item relative">
+        <h3 class="text-xl font-bold text-blue-600">Basic Education (Grade 1 - 8)</h3>
+        <p class="text-gray-600">Delight Model Academy, Phungling, Taplejung, Nepal</p>
+        <p class="text-sm italic text-gray-500">2012 - 2018</p>
+        <ul class="list-disc list-inside mt-2 space-y-1 text-sm text-gray-700">
+          <li>Studied a balanced curriculum covering English, Nepali, Mathematics, Science, and Social Studies.</li>
+          <li>Built early skills in reading, writing, and logical reasoning.</li>
+          <li>Actively participated in extra-curricular and creative activities during school life.</li>
+        </ul>
+      </div>
+
+      <!-- Example 5 -->
+      <div class="timeline-item relative">
+        <h3 class="text-xl font-bold text-blue-600">Primary Schooling</h3>
+        <p class="text-gray-600">Simle Basic School, Meringden (Khamlung), Taplejung, Nepal</p>
+        <p class="text-sm italic text-gray-500">2009 - 2011</p>
+        <ul class="list-disc list-inside mt-2 space-y-1 text-sm text-gray-700">
+          <li>Received foundational education in language, numbers, and general awareness.</li>
+          <li>Developed interest in studies and curiosity towards technology and learning.</li>
+          <li>Laid the groundwork for further academic growth.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+        <!-- Skills Section -->
+        <section id="skills" class="container mx-auto px-6 py-20">
+            <h2 class="text-4xl font-bold text-center mb-8">My Technical Skills</h2>
+            <div class="bg-white rounded-2xl p-8 shadow-md border border-gray-200 max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Programming Languages -->
+                    <div>
+                        <h3 class="text-xl font-bold text-blue-600 mb-4">Languages & Knowledges</h3>
+                        <ul class="space-y-2">
+                             <li class="flex items-center space-x-2"><i class="fas fa-file-word text-blue-600"></i><span>Basics : Word, Excel, Power Point</span></li>
+                             <li class="flex items-center space-x-2"><i class="fas fa-code text-blue-600"></i><span>HTML5 & CSS3</span></li>
+                             <li class="flex items-center space-x-2"><i class="fas fa-code text-blue-600"></i><span>C & C++</span></li>
+                             <li class="flex items-center space-x-2"><i class="fas fa-code text-blue-600"></i><span>JavaScript</span></li>
+                             <li class="flex items-center space-x-2"><i class="fas fa-code text-blue-600"></i><span>Python</span></li>
+                        </ul>
+                    </div>
+                    <!-- Frameworks & Libraries -->
+                    <div>
+                        <h3 class="text-xl font-bold text-blue-600 mb-4">Focusing Fields</h3>
+                        <ul class="space-y-2">
+                            <li class="flex items-center space-x-2"><i class="fas fa-bullhorn text-blue-600"></i><span>Digital Marketing</span></li>
+                            <li class="flex items-center space-x-2"><i class="fas fa-brain text-blue-600"></i><span>Artificial Intelligence (AI)</span></li>
+                            <li class="flex items-center space-x-2"><i class="fas fa-file-alt text-blue-600"></i><span>Project Documentation </span></li>
+                            <li class="flex items-center space-x-2"><i class="fas fa-server text-blue-600"></i><span>Web Hosting</span></li>
+                        </ul>
+                    </div>
+                    <!-- Databases & Other -->
+                    <div>
+                        <h3 class="text-xl font-bold text-blue-600 mb-4">Databases & Other Knowledge</h3>
+                        <ul class="space-y-2">
+                            <li class="flex items-center space-x-2"><i class="fas fa-database text-blue-600"></i><span>MySQL & SQL</span></li>
+                            <li class="flex items-center space-x-2"><i class="fas fa-sitemap text-blue-600"></i><span>Data Structures & Algorithms</span></li>
+                            <li class="flex items-center space-x-2"><i class="fas fa-cubes text-blue-600"></i><span>Object-Oriented Programming (OOP)</span></li>
+                            <li class="flex items-center space-x-2"><i class="fas fa-code-branch text-blue-600"></i><span>Git & GitHub</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="container mx-auto px-6 py-20">
+            <h2 class="text-4xl font-bold text-center mb-8">My Projects</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Project 1: Online Student Admission System -->
+                <div class="bg-white rounded-2xl p-6 shadow-md border border-gray-200 transition-transform duration-300 hover:scale-105">
+                    <h3 class="text-2xl font-bold mb-2">Online Student Admission System</h3>
+                    <p class="text-gray-600 mb-4">A web-based system designed to streamline the student admission process for colleges affiliated with Tribhuvan University. This application allows students to register, submit documents, and track their application status online, improving efficiency and accessibility for both students and administration.</p>
+                    <div class="flex flex-wrap gap-2 text-sm mb-4">
+                        <span class="bg-blue-200 text-blue-800 px-3 py-1 rounded-full">HTML5</span>
+                        <span class="bg-blue-200 text-blue-800 px-3 py-1 rounded-full">CSS3</span>
+                        <span class="bg-blue-200 text-blue-800 px-3 py-1 rounded-full">JavaScript</span>
+                        <span class="bg-blue-200 text-blue-800 px-3 py-1 rounded-full">PHP</span>
+                    </div>
+                    <a href="#" class="inline-block text-blue-600 hover:underline font-semibold mr-4">View Documentation →</a>
+                    <a href="https://github.com/pawanbhandaree/" target="_blank" class="inline-block text-blue-600 hover:underline font-semibold">View Code & Preview →</a>
+                </div>
+                <!-- Project 2: Online Pasal -->
+                <div class="bg-white rounded-2xl p-6 shadow-md border border-gray-200 transition-transform duration-300 hover:scale-105">
+                    <h3 class="text-2xl font-bold mb-2">Online Pasal - E-Commerce System</h3>
+                    <p class="text-gray-600 mb-4">"Online Pasal" is a business-to-consumer (B2C) e-commerce platform that facilitates online shopping. Developed for a BCA MIS & E-Business course, this system allows buyers and sellers to conduct trading activities through a secure and intuitive web interface.</p>
+                    <div class="flex flex-wrap gap-2 text-sm mb-4">
+                        <span class="bg-blue-200 text-blue-800 px-3 py-1 rounded-full">HTML</span>
+                        <span class="bg-blue-200 text-blue-800 px-3 py-1 rounded-full">CSS</span>
+                        <span class="bg-blue-200 text-blue-800 px-3 py-1 rounded-full">JavaScript</span>
+                        <span class="bg-blue-200 text-blue-800 px-3 py-1 rounded-full">Bootstrap</span>
+                        <span class="bg-blue-200 text-blue-800 px-3 py-1 rounded-full">PHP</span>
+                    </div>
+                    <a href="#" class="inline-block text-blue-600 hover:underline font-semibold mr-4">View Documentation →</a>
+                    <a href="https://github.com/pawanbhandaree/" target="_blank" class="inline-block text-blue-600 hover:underline font-semibold">View Code & Preview →</a>
+                </div>
+                <!-- Project 3: Digital Voting System -->
+                <div class="bg-white rounded-2xl p-6 shadow-md border border-gray-200 transition-transform duration-300 hover:scale-105">
+                    <h3 class="text-2xl font-bold mb-2">Digital Voting System</h3>
+                    <p class="text-gray-600 mb-4">A custom-built web application to manage and automate campus elections. This system provides a secure and transparent platform for students to cast their votes digitally, and it generates real-time results, including vote counts, winner declarations, and vote differentials, streamlining the election process.</p>
+                    <div class="flex flex-wrap gap-2 text-sm mb-4">
+                        <span class="bg-blue-200 text-blue-800 px-3 py-1 rounded-full">HTML</span>
+                        <span class="bg-blue-200 text-blue-800 px-3 py-1 rounded-full">CSS</span>
+                        <span class="bg-blue-200 text-blue-800 px-3 py-1 rounded-full">JavaScript</span>
+                        <span class="bg-blue-200 text-blue-800 px-3 py-1 rounded-full">PHP</span>
+                    </div>
+                    <a href="#" class="inline-block text-blue-600 hover:underline font-semibold mr-4">View Documentation →</a>
+                    <a href="https://github.com/pawanbhandaree/" target="_blank" class="inline-block text-blue-600 hover:underline font-semibold">View Code & Preview →</a>
+                </div>
+
+                <!--Digital Library Hub-->
+<div class="bg-white rounded-2xl p-6 shadow-md border border-gray-200 transition-transform duration-300 hover:scale-105">
+  <h3 class="text-2xl font-bold mb-2">Digital Library Hub</h3>
+  <p class="text-gray-600 mb-4">
+    The Digital Library Hub is an online platform that provides students, teachers, 
+    and researchers with centralized access to e-books, journals, research papers, 
+    notes, and multimedia content. It promotes paperless learning, saves time, and 
+    ensures equal access to academic resources. This project is developed as part of 
+    the requirements for the BCA 6th Semester Project II.
+  </p>
+  <div class="mb-4">
+    <span class="bg-blue-200 text-blue-800 px-3 py-1 rounded-full text-sm">HTML</span>
+    <span class="bg-blue-200 text-blue-800 px-3 py-1 rounded-full text-sm">CSS</span>
+    <span class="bg-blue-200 text-blue-800 px-3 py-1 rounded-full text-sm">JavaScript</span>
+    <span class="bg-blue-200 text-blue-800 px-3 py-1 rounded-full text-sm">PHP</span>
+  </div>
+  <a href="#" class="inline-block text-blue-600 hover:underline font-semibold mr-4">View Documentation →</a>
+  <a href="https://github.com/pawanbhandaree/" target="_blank" class="inline-block text-blue-600 hover:underline font-semibold">View Code & Preview →</a>
+</div>
+
+            </div>
+        </section>
+<!-- Tutorials & Notes Section -->
+<section id="tutorials" class="container mx-auto px-6 py-20">
+  <h2 class="text-4xl font-bold text-center mb-8">Coding, Tutorials & Notes</h2>
+  <div class="bg-white rounded-2xl p-8 shadow-md border border-gray-200 max-w-6xl mx-auto">
+    <p class="text-lg text-gray-600 text-center leading-relaxed mb-8">
+      As a BCA student, I believe in sharing knowledge. This section is dedicated to providing simplified tutorials and key notes on programming and core BCA subjects for fellow students, from high school to university level.
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Tutorial Card 1 -->
+      <div class="bg-gray-50 rounded-lg p-6 shadow-sm border border-gray-200">
+        <h3 class="text-xl font-semibold text-gray-900 mb-2">Web Development</h3>
+        <p class="text-gray-600 text-sm mb-4">Beginner-friendly guide on building websites using HTML, CSS, and JavaScript. Covers layouts, responsive design, and modern best practices for aspiring web developers.</p>
+        <a href="#" class="text-blue-600 hover:underline font-medium text-sm">Read Notes →</a>
+      </div>
+
+      <!-- Tutorial Card 2 -->
+      <div class="bg-gray-50 rounded-lg p-6 shadow-sm border border-gray-200">
+        <h3 class="text-xl font-semibold text-gray-900 mb-2">Python Fundamentals</h3>
+        <p class="text-gray-600 text-sm mb-4">Core notes on Python basics including variables, loops, functions, file handling, and an introduction to Object-Oriented Programming.</p>
+        <a href="#" class="text-blue-600 hover:underline font-medium text-sm">Read Notes →</a>
+      </div>
+
+      <!-- Tutorial Card 3 -->
+      <div class="bg-gray-50 rounded-lg p-6 shadow-sm border border-gray-200">
+        <h3 class="text-xl font-semibold text-gray-900 mb-2">C# & .NET Concepts</h3>
+        <p class="text-gray-600 text-sm mb-4">C# programming with .NET framework: classes, objects, inheritance, interfaces, and building small applications with Visual Studio.</p>
+        <a href="#" class="text-blue-600 hover:underline font-medium text-sm">Read Notes →</a>
+      </div>
+
+      <!-- Tutorial Card 4 -->
+      <div class="bg-gray-50 rounded-lg p-6 shadow-sm border border-gray-200">
+        <h3 class="text-xl font-semibold text-gray-900 mb-2">Database & Networking Concepts</h3>
+        <p class="text-gray-600 text-sm mb-4">Covers ER diagrams, SQL queries, normalization, transactions, and relational database design principles as well as brief introduction of 7 layers of OSI model for the requriement of Information Technology.</p>
+        <a href="#" class="text-blue-600 hover:underline font-medium text-sm">Read Notes →</a>
+      </div>
+
+      <!-- Tutorial Card 5 -->
+      <div class="bg-gray-50 rounded-lg p-6 shadow-sm border border-gray-200">
+        <h3 class="text-xl font-semibold text-gray-900 mb-2">Financial Accounting & Statistics</h3>
+        <p class="text-gray-600 text-sm mb-4">Summarized notes on accounting principles, journal entries, balance sheets, probability, hypothesis testing, and data interpretation.</p>
+        <a href="#" class="text-blue-600 hover:underline font-medium text-sm">Read Notes →</a>
+      </div>
+
+      <!-- Tutorial Card 6 -->
+      <div class="bg-gray-50 rounded-lg p-6 shadow-sm border border-gray-200">
+        <h3 class="text-xl font-semibold text-gray-900 mb-2">Numerical Methods</h3>
+        <p class="text-gray-600 text-sm mb-4">Covers Newton-Raphson, Bisection, Iterative methods, interpolation, numerical integration, and solving differential equations with step-by-step examples.</p>
+        <a href="#" class="text-blue-600 hover:underline font-medium text-sm">Read Notes →</a>
+      </div>
+
+      <!-- Tutorial Card 7 -->
+      <div class="bg-gray-50 rounded-lg p-6 shadow-sm border border-gray-200">
+        <h3 class="text-xl font-semibold text-gray-900 mb-2">Management, E-Commerce & Cryptography</h3>
+        <p class="text-gray-600 text-sm mb-4">Notes on principles of management, MIS, online business strategies, encryption, digital signatures, and security fundamentals.</p>
+        <a href="#" class="text-blue-600 hover:underline font-medium text-sm">Read Notes →</a>
+      </div>
+
+      <!-- Tutorial Card 8 -->
+      <div class="bg-gray-50 rounded-lg p-6 shadow-sm border border-gray-200">
+        <h3 class="text-xl font-semibold text-gray-900 mb-2">System Analysis & Design, Project Documentation</h3>
+        <p class="text-gray-600 text-sm mb-4">Explains SDLC, DFD, UML diagrams, feasibility analysis, and guidelines for writing project reports and documentation for academic projects.</p>
+        <a href="#" class="text-blue-600 hover:underline font-medium text-sm">Read Notes →</a>
+      </div>
+
+      <!-- Tutorial Card 9 -->
+      <div class="bg-gray-50 rounded-lg p-6 shadow-sm border border-gray-200">
+        <h3 class="text-xl font-semibold text-gray-900 mb-2">Society & Technology, Economics Concepts</h3>
+        <p class="text-gray-600 text-sm mb-4">Covers IT impact on society, ethical issues, ICT trends, plus micro and macroeconomics concepts including demand, supply, and national income.</p>
+        <a href="#" class="text-blue-600 hover:underline font-medium text-sm">Read Notes →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="container mx-auto px-6 py-20">
+            <h2 class="text-4xl font-bold text-center mb-8">Contact Me</h2>
+            <div class="bg-white rounded-2xl p-8 sm:p-12 shadow-md border border-gray-200 max-w-xl w-full mx-auto text-center">
+                <p class="text-lg text-gray-600 mb-6">Let's connect! I'm always open to new opportunities and collaborations.</p>
+
+                <!-- Client-side Contact Form -->
+                <form id="contactForm" class="text-left">
+                    <div class="space-y-4">
+                        <div>
+                            <label for="name" class="block text-gray-700 font-semibold mb-1">Your Name</label>
+                            <input type="text" id="name" name="name" required
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-700 font-semibold mb-1">Your Email</label>
+                            <input type="email" id="email" name="email" required
+                                   class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-gray-700 font-semibold mb-1">Your Message</label>
+                            <textarea id="message" name="message" rows="4" required
+                                      class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="w-full mt-6 p-4 text-white bg-blue-600 rounded-md font-semibold hover:bg-blue-700 transition-colors shadow-md">
+                        <span id="submitText">Send Message</span>
+                        <span id="loadingSpinner" class="spinner hidden"></span>
+                    </button>
+                    <p id="formStatus" class="mt-4 text-center hidden"></p>
+                </form>
+
+                <!-- Social Media Links (as a fallback or alternative) -->
+                <div class="mt-8">
+                    <p class="text-sm text-gray-500 mb-4">Or connect with me on social media:</p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <a href="https://www.facebook.com/pawan.bhandari.94214" target="_blank" class="flex items-center justify-center p-4 bg-gray-200 rounded-lg text-gray-700 hover:text-white transition-colors hover:bg-[#1877F2]">
+                            <i class="fab fa-facebook-f text-lg mr-2"></i> Facebook
+                        </a>
+                        <a href="https://www.instagram.com/pawan.vashishtha_official" target="_blank" class="flex items-center justify-center p-4 bg-gray-200 rounded-lg text-gray-700 hover:text-white transition-colors hover:bg-[#E4405F]">
+                            <i class="fab fa-instagram text-lg mr-2"></i> Instagram
+                        </a>
+                        <a href="https://linkedin.com/comm/mynetwork/discovery-see-all?usecase=PEOPLE_FOLLOWS&followMember=pawan-bhandari-30b597311 " target="_blank" class="flex items-center justify-center p-4 bg-gray-200 rounded-lg text-gray-700 hover:text-white transition-colors hover:bg-[#0A66C2]">
+                            <i class="fab fa-linkedin-in text-lg mr-2"></i> LinkedIn
+                        </a>
+                        <a href="https://wa.me/+9779804989691" target="_blank" class="flex items-center justify-center p-4 bg-gray-200 rounded-lg text-gray-700 hover:text-white transition-colors hover:bg-[#25D366]">
+                            <i class="fab fa-whatsapp text-lg mr-2"></i> WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-200 py-6 text-center text-sm text-gray-500">
+        <p>&copy; Personal Blog 2025 || Pawan Bhandaree. All Rights Reserved !</p>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Stop the default form submission
+
+            const form = event.target;
+            const submitButton = form.querySelector('button[type="submit"]');
+            const submitText = document.getElementById('submitText');
+            const loadingSpinner = document.getElementById('loadingSpinner');
+            const formStatus = document.getElementById('formStatus');
+
+            // Show loading state
+            submitText.classList.add('hidden');
+            loadingSpinner.classList.remove('hidden');
+            submitButton.disabled = true;
+            formStatus.classList.add('hidden');
+
+            // Simulate a network request delay
+            setTimeout(() => {
+                // Update the status message and styling
+                formStatus.textContent = "Thank you for your message! I'll get back to you soon.";
+                formStatus.classList.remove('hidden');
+                formStatus.classList.add('text-green-600', 'font-semibold');
+                
+                // Reset the form fields
+                form.reset();
+
+                // Reset the button state
+                submitText.classList.remove('hidden');
+                loadingSpinner.classList.add('hidden');
+                submitButton.disabled = false;
+            }, 1500); // Wait for 1.5 seconds to simulate submission
+        });
+    </script>
+</body>
+</html>
+  
