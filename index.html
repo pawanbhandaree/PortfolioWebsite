@@ -1,487 +1,405 @@
-<!--
-    File: portfolio_with_form_and_tutorials.html
-    Description: An enhanced professional portfolio for Pawan Bhandari,
-    featuring a functional contact form, detailed project descriptions, and a
-    dedicated section for educational tutorials and notes.
-
-    Author: Gemini
-    For: Pawan Bhandari, BCA Student
--->
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pawan Bhandaree - Professional Portfolio</title>
-    <!-- Google Fonts - Inter for a modern, clean look -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Tailwind CSS CDN for a robust and responsive design system -->
+    <title>Pawan Bhandaree - BCA Student</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome for social media and icon links -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    
     <style>
+        /* Custom Font Recommendation for Aesthetics */
+        .nepali-font {
+            /* If a Nepali font is linked, use it here, e.g., font-family: 'Preeti', sans-serif; */
+            font-family: sans-serif; /* Fallback */
+        }
+        .main-font {
+            font-family: 'Montserrat', sans-serif;
+        }
         body {
-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-
-
-
-
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden; /* Prevent horizontal scroll from AOS animations */
         }
-        .hero-pattern {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 100px;
+        
+        /* Custom Scrollbar for a modern look */
+        ::-webkit-scrollbar {
+            width: 10px;
         }
-        /* Styling for the education timeline */
+        ::-webkit-scrollbar-track {
+            background: #f0f4f8; /* Light gray-blue */
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, #4a90e2, #6a5acd); /* Blue to purple gradient */
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(to bottom, #3b82f6, #5a4bce);
+        }
+
+        /* Custom Timeline Connector Line */
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: -1rem;
+            left: 0;
             top: 0;
-            height: 100%;
-            width: 2px;
-            background-color: #d1d5db; /* Light gray line */
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, #3b82f6, #1e40af);
+            border-radius: 2px;
+            transform: translateX(-50%);
         }
-        .timeline-item::after {
+        .timeline-item {
+            padding-left: 2rem;
+            position: relative;
+        }
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Enhanced Hover Effects for Interactivity */
+        .hover-lift {
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .hover-lift:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        /* Animated Background for Home Section */
+        #home {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        #home::before {
             content: '';
             position: absolute;
-            left: -1.5rem;
             top: 0;
-            width: 1rem;
-            height: 1rem;
-            background-color: #3b82f6; /* Blue dot */
-            border: 2px solid #93c5fd; /* Lighter blue border */
-            border-radius: 50%;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('https://source.unsplash.com/random/1920x1080/?abstract,geometric') no-repeat center center;
+            background-size: cover;
+            opacity: 0.2; /* Slightly more visible */
+            z-index: 0;
+            animation: float 20s ease-in-out infinite;
         }
-        /* Custom spinner for loading state */
-        .spinner {
-            display: inline-block;
-            border: 2px solid white;
-            border-top: 2px solid transparent;
-            border-radius: 50%;
-            width: 1.25rem;
-            height: 1.25rem;
-            animation: spin 1s linear infinite;
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
         }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        #home > div {
+            position: relative;
+            z-index: 1;
+        }
+        /* Gradient Text - slightly updated for more vibrancy */
+        .gradient-text {
+            background: linear-gradient(45deg, #4a90e2, #a64acb); /* More distinct blue to purple */
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        /* Custom Button Glow */
+        .btn-glow {
+            box-shadow: 0 0 20px rgba(74, 144, 226, 0.5); /* Matching new blue */
+            transition: box-shadow 0.3s ease;
+        }
+        .btn-glow:hover {
+            box-shadow: 0 0 30px rgba(74, 144, 226, 0.8);
+        }
+        /* Floating Icons */
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* New: Background patterns for sections */
+        .section-bg-pattern {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%239C92AC' fill-opacity='0.1' fill-rule='evenodd'%3E%3Cpath d='M0 0h30v30H0V0zm30 30h30v30H30V30z'/%3E%3C/g%3E%3C/svg%3E");
+            background-size: 30px;
+            background-position: center center;
+        }
+
+        /* New: Social icon hover effect */
+        .social-icon-hover:hover {
+            transform: translateY(-5px) scale(1.2);
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.3));
+        }
+
+        /* Custom text selection style */
+        ::selection {
+            background-color: #a64acb; /* Purple */
+            color: #ffffff;
         }
     </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body class="bg-gradient-to-br from-gray-50 to-blue-50 text-gray-800 main-font">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1200, /* Slightly longer duration for smoother effects */
+            once: true,
+            offset: 100, /* Start animation a bit earlier */
+        });
+    </script>
 
-    <!-- Header & Navigation -->
-    <header class="bg-white fixed top-0 left-0 w-full z-50 shadow-md">
+    <header class="bg-white/95 backdrop-blur-md fixed top-0 left-0 w-full z-50 shadow-xl border-b border-blue-100">
         <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#home" class="flex items-center space-x-2">
-                <img src="https://placehold.co/40x40/007bff/ffffff?text=PB" alt="PB Icon" class="h-10 w-auto rounded-lg">
-                <span class="text-2xl font-bold text-gray-900"></span>
+            <a href="#home" class="flex items-center space-x-3" data-aos="fade-right">
+                <img src="https://placehold.co/48x48/4a90e2/ffffff?text=PB" alt="PB Icon" class="h-12 w-auto rounded-full shadow-lg floating border-2 border-blue-300">
+                <span class="text-3xl font-extrabold text-gray-900 tracking-wider gradient-text">Pawan Bhandaree</span>
             </a>
-            <div class="space-x-4 flex items-center">
-                <div class="space-x-4 hidden md:flex">
-                    <a href="#home" class="text-gray-600 hover:text-gray-900 transition-colors font-medium">Home</a>
-                    <a href="#about" class="text-gray-600 hover:text-gray-900 transition-colors font-medium">About</a>
-                    <a href="#education" class="text-gray-600 hover:text-gray-900 transition-colors font-medium">Education</a>
-                    <a href="#skills" class="text-gray-600 hover:text-gray-900 transition-colors font-medium">Skills</a>
-                    <a href="#projects" class="text-gray-600 hover:text-gray-900 transition-colors font-medium">Projects</a>
-                    <a href="#tutorials" class="text-gray-600 hover:text-gray-900 transition-colors font-medium">Tutorials</a>
+            <div class="space-x-6 flex items-center">
+                <div class="space-x-8 hidden md:flex font-semibold text-lg">
+                    <a href="#home" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 transform hover:-translate-y-1">Home</a>
+                    <a href="#about" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 transform hover:-translate-y-1">About</a>
+                    <a href="#education" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 transform hover:-translate-y-1">Education</a>
+                    <a href="#skills" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 transform hover:-translate-y-1">Skills</a>
+                    <a href="#aspiration" class="text-gray-700 hover:text-blue-600 transition-colors duration-300 transform hover:-translate-y-1">Aspiration</a>
                 </div>
-                <a href="#contact" class="px-5 py-2 text-sm bg-blue-600 text-white rounded-md font-semibold hover:bg-blue-700 transition-colors shadow-md">Get In Touch</a>
+                <a href="#contact" class="px-6 py-3 text-base bg-gradient-to-r from-blue-600 to-purple-700 text-white rounded-full font-bold hover:from-blue-700 hover:to-purple-800 transition-all duration-300 shadow-xl btn-glow transform hover:scale-105">Get In Touch <i class="fas fa-arrow-right ml-2"></i></a>
             </div>
         </nav>
     </header>
 
-    <main class="pt-20">
-        <!-- Hero Section -->
-        <section id="home" class="container mx-auto px-6 py-20 min-h-screen flex items-center justify-center">
-            <div class="bg-white rounded-2xl p-8 sm:p-12 shadow-2xl max-w-7xl w-full flex flex-col md:flex-row items-center justify-between relative overflow-hidden">
-                <div class="text-center md:text-left md:w-1/2 mb-10 md:mb-0 z-10">
-                    <p class="text-sm text-blue-600 font-semibold mb-2">GET EVERY SINGLE SOLUTION.</p>
-                    <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-4">I'm a Developer<br>Pawan Bhandari.</h1>
-                    <p class="text-base text-gray-600 max-w-lg mx-auto md:mx-0 leading-relaxed mb-6">
-                        I'm a dedicated BCA student passionate about creating clean, efficient, and user-friendly web solutions that solve real-world problems.
+    <main class="pt-24">
+        <section id="home" class="container mx-auto px-6 py-20 min-h-[85vh] flex items-center justify-center relative overflow-hidden" data-aos="fade-up">
+            <div class="bg-white/95 backdrop-blur-md rounded-3xl p-8 sm:p-14 shadow-2xl max-w-7xl w-full flex flex-col md:flex-row items-center justify-between relative overflow-hidden transform transition-all duration-500 hover:scale-[1.01] border-4 border-blue-100">
+                <div class="text-center md:text-left md:w-1/2 mb-10 md:mb-0 z-10" data-aos="fade-right">
+                    <p class="text-lg text-blue-700 font-bold mb-3 tracking-widest uppercase animate-pulse">Building the Future, One Line of Code at a Time.</p>
+                    <h1 class="text-6xl md:text-7xl font-extrabold text-gray-900 leading-tight mb-5">
+                        Pawan Bhandaree<br>
+                        <span class="gradient-text">The Digital Aspirant.</span>
+                    </h1>
+                    <p class="text-xl text-gray-700 max-w-lg mx-auto md:mx-0 leading-relaxed mb-8 border-l-4 pl-4 border-red-500 font-medium">
+                        I'm a dedicated <strong>BCA (IT) Student</strong> & <strong>Web Developer</strong> passionate about creating clean, efficient, and user-friendly digital solutions.
                     </p>
-                    <div class="flex justify-center md:justify-start space-x-4">
-                        <a href="Personal Profile pp.pdf" class="px-6 py-3 bg-red-500 text-white rounded-md font-semibold hover:bg-red-600 transition-colors shadow-md">Learn More</a>
-                        <a href="#contact" class="px-6 py-3 border border-gray-300 text-gray-700 rounded-md font-semibold hover:bg-gray-100 transition-colors">Hire Me</a>
+                    <div class="flex justify-center md:justify-start space-x-6 mt-8">
+                        <a href="Personal Profile pp.pdf" download class="px-9 py-4 bg-gradient-to-r from-red-600 to-pink-600 text-white rounded-full font-bold text-lg hover:from-red-700 hover:to-pink-700 transition-all duration-300 shadow-xl flex items-center space-x-3 btn-glow transform hover:scale-105">
+                            <i class="fas fa-download"></i>
+                            <span>CV/Profile Download</span>
+                        </a>
+                        <a href="#contact" class="px-9 py-4 border-2 border-gray-400 text-gray-700 rounded-full font-bold text-lg hover:bg-gray-100 hover:border-blue-500 transition-all duration-300 transform hover:scale-105">Hire Me</a>
                     </div>
                 </div>
-                <div class="w-full md:w-1/2 flex justify-center z-10">
-                    <img src="profile-pic.png" alt="Pawan Bhandari" class="rounded-lg w-full max-w-md h-auto shadow-xl">
+                <div class="w-full md:w-1/2 flex justify-center z-10" data-aos="fade-left" data-aos-delay="300">
+                   <img src="profile-pic.png" alt="Pawan Bhandari" class="rounded-lg w-full max-w-md h-auto shadow-xl">
                 </div>
-                <!-- Subtle wave pattern from the design -->
-                <svg class="hero-pattern z-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
-                    <path fill="#f3f4f6" fill-opacity="1" d="M0,64L80,80C160,96,320,128,480,128C640,128,800,96,960,106.7C1120,117,1280,171,1360,197.3L1440,224L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
-                </svg>
+                <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-blue-100/70 to-transparent opacity-60"></div>
             </div>
         </section>
 
-        <!-- About Me Section -->
-        <section id="about" class="container mx-auto px-6 py-20">
-            <h2 class="text-4xl font-bold text-center mb-8">About Me</h2>
-            <div class="bg-white rounded-2xl p-8 shadow-md border border-gray-200 max-w-4xl mx-auto">
-               <p class="text-lg text-gray-600 leading-relaxed mb-4">
-    My name is Pawan Bhandaree, a Bachelor of Computer Application (BCA) 6th Semester student under Tribhuvan University, Faculty of Humanities & Social Sciences. I am passionate about exploring the vast world of Information Technology, with a particular focus on building innovative and efficient web solutions. My academic journey has strengthened my interest in software development, web technologies, and problem-solving through IT.
-</p>
-<p class="text-lg text-gray-600 leading-relaxed">
-    I strongly believe in the impact of technology to transform ideas into reality. With a dedication to clean code, scalable systems, and modern development practices, I aim to contribute to the digital world by creating practical solutions that address real-world challenges. This portfolio highlights my projects, skills, and vision as I continue to grow in the IT field.
-</p>
+        <hr class="border-gray-300 w-1/2 mx-auto my-16 opacity-70" data-aos="fade-in">
 
+        <section id="about" class="container mx-auto px-6 py-20 section-bg-pattern" data-aos="fade-up">
+            <h2 class="text-5xl font-extrabold text-center mb-12 text-gray-900 gradient-text">About Me</h2>
+            <div class="bg-white rounded-3xl p-12 shadow-2xl border border-blue-200 max-w-5xl mx-auto transform transition-all hover:shadow-3xl hover-lift">
+                <p class="text-xl text-gray-700 leading-relaxed mb-8 font-light">
+                    My name is <strong>Pawan Bhandaree</strong>, a dedicated student of <strong>Bachelor of Computer Application (BCA) 6th Semester</strong> under Tribhuvan University. I am driven by the immense potential of <strong>Information Technology</strong> to solve complex problems and create user-centric web solutions. My foundation in management (+2 level) and IT studies enables me to approach development projects with both technical depth and business practicality.
+                </p>
+                <p class="text-xl text-gray-700 leading-relaxed border-l-4 pl-4 border-blue-600 nepali-font font-medium">
+                    म Clean Code, Scalable Systems र आधुनिक प्रविधिको प्रयोगमा विश्वास राख्दछु। डिजिटल संसारमा वास्तविक चुनौतीहरूलाई सम्बोधन गर्ने व्यावहारिक समाधानहरू सिर्जना गर्नु नै मेरो मुख्य लक्ष्य हो।
+                </p>
             </div>
         </section>
-<!-- Education Section -->
-<section id="education" class="container mx-auto px-6 py-20">
-  <h2 class="text-4xl font-bold text-center mb-8">My Academic Journey</h2>
-  <div class="bg-white rounded-2xl p-8 shadow-md border border-gray-200 max-w-4xl mx-auto">
-    <div class="relative space-y-8 pl-8 md:pl-16">
 
-      <!-- Example 1 -->
-      <div class="timeline-item relative">
-        <h3 class="text-xl font-bold text-blue-600">Bachelor of Computer Application (BCA)</h3>
-        <p class="text-gray-600">Tribhuvan University - Mechi Multiple Campus, Bhadrapur, Jhapa, Nepal</p>
-        <p class="text-sm italic text-gray-500">2022 - Present</p>
-        <ul class="list-disc list-inside mt-2 space-y-1 text-sm text-gray-700">
-          <li>Learning computer science fundamentals such as programming, networking, and database systems.</li>
-          <li>Hands-on practice with languages like C, C#, JavaScript, and Python with focus on OOP.</li>
-          <li>Building academic and personal projects in web development and software applications.</li>
-        </ul>
-      </div>
+        <hr class="border-gray-300 w-1/2 mx-auto my-16 opacity-70" data-aos="fade-in">
 
-      <!-- Example 2 -->
-      <div class="timeline-item relative">
-        <h3 class="text-xl font-bold text-blue-600">High School +2 (Management)</h3>
-        <p class="text-gray-600">National Examination Board (NEB) - Devi Secondary School, Birtamode, Jhapa, Nepal</p>
-        <p class="text-sm italic text-gray-500">2019 - 2021</p>
-        <ul class="list-disc list-inside mt-2 space-y-1 text-sm text-gray-700">
-          <li>Focused on subjects like Computer, Economics, and Accounting alongside core management courses.</li>
-          <li>Strengthened analytical, financial, and organizational skills essential for higher studies.</li>
-          <li>Built a strong foundation for pursuing IT and management-related careers.</li>
-        </ul>
-      </div>
-
-      <!-- Example 3 -->
-      <div class="timeline-item relative">
-        <h3 class="text-xl font-bold text-blue-600">Secondary Education (SEE)</h3>
-        <p class="text-gray-600">National Examination Board (NEB) - Birendra Secondary School, Phungling, Taplejung, Nepal</p>
-        <p class="text-sm italic text-gray-500">2018-2020</p>
-        <ul class="list-disc list-inside mt-2 space-y-1 text-sm text-gray-700">
-          <li>Completed the School Leaving Certificate (SEE) with core subjects like English, Math, Science, and Social Studies.</li>
-          <li>Gained fundamental knowledge of grammar, problem-solving, and scientific principles.</li>
-          <li>Prepared academic base for higher secondary (+2) management program.</li>
-        </ul>
-      </div>
-
-      <!-- Example 4 -->
-      <div class="timeline-item relative">
-        <h3 class="text-xl font-bold text-blue-600">Basic Education (Grade 1 - 8)</h3>
-        <p class="text-gray-600">Delight Model Academy, Phungling, Taplejung, Nepal</p>
-        <p class="text-sm italic text-gray-500">2012 - 2018</p>
-        <ul class="list-disc list-inside mt-2 space-y-1 text-sm text-gray-700">
-          <li>Studied a balanced curriculum covering English, Nepali, Mathematics, Science, and Social Studies.</li>
-          <li>Built early skills in reading, writing, and logical reasoning.</li>
-          <li>Actively participated in extra-curricular and creative activities during school life.</li>
-        </ul>
-      </div>
-
-      <!-- Example 5 -->
-      <div class="timeline-item relative">
-        <h3 class="text-xl font-bold text-blue-600">Primary Schooling</h3>
-        <p class="text-gray-600">Simle Basic School, Meringden (Khamlung), Taplejung, Nepal</p>
-        <p class="text-sm italic text-gray-500">2009 - 2011</p>
-        <ul class="list-disc list-inside mt-2 space-y-1 text-sm text-gray-700">
-          <li>Received foundational education in language, numbers, and general awareness.</li>
-          <li>Developed interest in studies and curiosity towards technology and learning.</li>
-          <li>Laid the groundwork for further academic growth.</li>
-        </ul>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-        <!-- Skills Section -->
-        <section id="skills" class="container mx-auto px-6 py-20">
-            <h2 class="text-4xl font-bold text-center mb-8">My Technical Skills</h2>
-            <div class="bg-white rounded-2xl p-8 shadow-md border border-gray-200 max-w-4xl mx-auto">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Programming Languages -->
-                    <div>
-                        <h3 class="text-xl font-bold text-blue-600 mb-4">Languages & Knowledges</h3>
-                        <ul class="space-y-2">
-                             <li class="flex items-center space-x-2"><i class="fas fa-file-word text-blue-600"></i><span>Basics : Word, Excel, Power Point</span></li>
-                             <li class="flex items-center space-x-2"><i class="fas fa-code text-blue-600"></i><span>HTML5 & CSS3</span></li>
-                             <li class="flex items-center space-x-2"><i class="fas fa-code text-blue-600"></i><span>C & C++</span></li>
-                             <li class="flex items-center space-x-2"><i class="fas fa-code text-blue-600"></i><span>JavaScript</span></li>
-                             <li class="flex items-center space-x-2"><i class="fas fa-code text-blue-600"></i><span>Python</span></li>
-                        </ul>
+        <section id="aspiration" class="container mx-auto px-6 py-20 bg-gradient-to-r from-blue-100 to-purple-100 section-bg-pattern rounded-3xl shadow-lg" data-aos="fade-up">
+            <h2 class="text-5xl font-extrabold text-center mb-12 text-blue-800 gradient-text">My Long-Term Aspiration </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+                <div class="bg-white rounded-2xl p-8 shadow-xl border-t-4 border-blue-600 hover:shadow-2xl transform transition-transform hover:-translate-y-2 hover-lift" data-aos="zoom-in">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <i class="fas fa-laptop-code text-4xl text-blue-600 floating"></i>
+                        <h3 class="text-2xl font-bold text-gray-800">Technical Trajectory (IT Sector)</h3>
                     </div>
-                    <!-- Frameworks & Libraries -->
-                    <div>
-                        <h3 class="text-xl font-bold text-blue-600 mb-4">Focusing Fields</h3>
-                        <ul class="space-y-2">
-                            <li class="flex items-center space-x-2"><i class="fas fa-bullhorn text-blue-600"></i><span>Digital Marketing</span></li>
-                            <li class="flex items-center space-x-2"><i class="fas fa-brain text-blue-600"></i><span>Artificial Intelligence (AI)</span></li>
-                            <li class="flex items-center space-x-2"><i class="fas fa-file-alt text-blue-600"></i><span>Project Documentation </span></li>
-                            <li class="flex items-center space-x-2"><i class="fas fa-server text-blue-600"></i><span>Web Hosting</span></li>
-                        </ul>
+                    <p class="text-lg text-gray-600 leading-relaxed">
+                        To become an IT Officer or Software Engineer within a government agency . My aim is to leverage my BCA knowledge to build secure, efficient and accessible e-governance systems for the public.
+                    </p>
+                </div>
+                <div class="bg-white rounded-2xl p-8 shadow-xl border-t-4 border-red-600 hover:shadow-2xl transform transition-transform hover:-translate-y-2 hover-lift" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="flex items-center space-x-4 mb-4">
+                        <i class="fas fa-university text-4xl text-red-600 floating"></i>
+                        <h3 class="text-2xl font-bold text-gray-800">Civil Service Dream (Non-IT Sector)</h3>
                     </div>
-                    <!-- Databases & Other -->
-                    <div>
-                        <h3 class="text-xl font-bold text-blue-600 mb-4">Databases & Other Knowledge</h3>
-                        <ul class="space-y-2">
-                            <li class="flex items-center space-x-2"><i class="fas fa-database text-blue-600"></i><span>MySQL & SQL</span></li>
-                            <li class="flex items-center space-x-2"><i class="fas fa-sitemap text-blue-600"></i><span>Data Structures & Algorithms</span></li>
-                            <li class="flex items-center space-x-2"><i class="fas fa-cubes text-blue-600"></i><span>Object-Oriented Programming (OOP)</span></li>
-                            <li class="flex items-center space-x-2"><i class="fas fa-code-branch text-blue-600"></i><span>Git & GitHub</span></li>
-                        </ul>
-                    </div>
+                    <p class="text-lg text-gray-600 leading-relaxed nepali-font">
+                        नेपालको निजामती सेवा (Civil Service) मा प्रवेश गरी देशको प्रशासन र विकासमा योगदान पुर्याउने बलियो आकांक्षा छ। IT र व्यवस्थापनको ज्ञानलाई सार्वजनिक सेवाको दक्षता वृद्धिका लागि उपयोग गर्नु मेरो प्रमुख लक्ष्य हो।
+                    </p>
                 </div>
             </div>
         </section>
 
-        <!-- Projects Section -->
-        <section id="projects" class="container mx-auto px-6 py-20">
-            <h2 class="text-4xl font-bold text-center mb-8">My Projects</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-                <!-- Project 1: Online Student Admission System -->
-                <div class="bg-white rounded-2xl p-6 shadow-md border border-gray-200 transition-transform duration-300 hover:scale-105">
-                    <h3 class="text-2xl font-bold mb-2">Online Student Admission System</h3>
-                    <p class="text-gray-600 mb-4">A web-based system designed to streamline the student admission process for colleges affiliated with Tribhuvan University. This application allows students to register, submit documents, and track their application status online, improving efficiency and accessibility for both students and administration.</p>
-                    <div class="flex flex-wrap gap-2 text-sm mb-4">
-                        <span class="bg-blue-200 text-blue-800 px-3 py-1 rounded-full">HTML5</span>
-                        <span class="bg-blue-200 text-blue-800 px-3 py-1 rounded-full">CSS3</span>
-                        <span class="bg-blue-200 text-blue-800 px-3 py-1 rounded-full">JavaScript</span>
-                        <span class="bg-blue-200 text-blue-800 px-3 py-1 rounded-full">PHP</span>
-                    </div>
-                    <a href="#" class="inline-block text-blue-600 hover:underline font-semibold mr-4">View Documentation →</a>
-                    <a href="https://github.com/pawanbhandaree/" target="_blank" class="inline-block text-blue-600 hover:underline font-semibold">View Code & Preview →</a>
-                </div>
-                <!-- Project 2: Online Pasal -->
-                <div class="bg-white rounded-2xl p-6 shadow-md border border-gray-200 transition-transform duration-300 hover:scale-105">
-                    <h3 class="text-2xl font-bold mb-2">Online Pasal - E-Commerce System</h3>
-                    <p class="text-gray-600 mb-4">"Online Pasal" is a business-to-consumer (B2C) e-commerce platform that facilitates online shopping. Developed for a BCA MIS & E-Business course, this system allows buyers and sellers to conduct trading activities through a secure and intuitive web interface.</p>
-                    <div class="flex flex-wrap gap-2 text-sm mb-4">
-                        <span class="bg-blue-200 text-blue-800 px-3 py-1 rounded-full">HTML</span>
-                        <span class="bg-blue-200 text-blue-800 px-3 py-1 rounded-full">CSS</span>
-                        <span class="bg-blue-200 text-blue-800 px-3 py-1 rounded-full">JavaScript</span>
-                        <span class="bg-blue-200 text-blue-800 px-3 py-1 rounded-full">Bootstrap</span>
-                        <span class="bg-blue-200 text-blue-800 px-3 py-1 rounded-full">PHP</span>
-                    </div>
-                    <a href="#" class="inline-block text-blue-600 hover:underline font-semibold mr-4">View Documentation →</a>
-                    <a href="https://github.com/pawanbhandaree/" target="_blank" class="inline-block text-blue-600 hover:underline font-semibold">View Code & Preview →</a>
-                </div>
-                <!-- Project 3: Digital Voting System -->
-                <div class="bg-white rounded-2xl p-6 shadow-md border border-gray-200 transition-transform duration-300 hover:scale-105">
-                    <h3 class="text-2xl font-bold mb-2">Digital Voting System</h3>
-                    <p class="text-gray-600 mb-4">A custom-built web application to manage and automate campus elections. This system provides a secure and transparent platform for students to cast their votes digitally, and it generates real-time results, including vote counts, winner declarations, and vote differentials, streamlining the election process.</p>
-                    <div class="flex flex-wrap gap-2 text-sm mb-4">
-                        <span class="bg-blue-200 text-blue-800 px-3 py-1 rounded-full">HTML</span>
-                        <span class="bg-blue-200 text-blue-800 px-3 py-1 rounded-full">CSS</span>
-                        <span class="bg-blue-200 text-blue-800 px-3 py-1 rounded-full">JavaScript</span>
-                        <span class="bg-blue-200 text-blue-800 px-3 py-1 rounded-full">PHP</span>
-                    </div>
-                    <a href="#" class="inline-block text-blue-600 hover:underline font-semibold mr-4">View Documentation →</a>
-                    <a href="https://github.com/pawanbhandaree/" target="_blank" class="inline-block text-blue-600 hover:underline font-semibold">View Code & Preview →</a>
-                </div>
+        <hr class="border-gray-300 w-1/2 mx-auto my-16 opacity-70" data-aos="fade-in">
 
-                <!--Digital Library Hub-->
-<div class="bg-white rounded-2xl p-6 shadow-md border border-gray-200 transition-transform duration-300 hover:scale-105">
-  <h3 class="text-2xl font-bold mb-2">Digital Library Hub</h3>
-  <p class="text-gray-600 mb-4">
-    The Digital Library Hub is an online platform that provides students, teachers, 
-    and researchers with centralized access to e-books, journals, research papers, 
-    notes, and multimedia content. It promotes paperless learning, saves time, and 
-    ensures equal access to academic resources. This project is developed as part of 
-    the requirements for the BCA 6th Semester Project II.
-  </p>
-  <div class="mb-4">
-    <span class="bg-blue-200 text-blue-800 px-3 py-1 rounded-full text-sm">HTML</span>
-    <span class="bg-blue-200 text-blue-800 px-3 py-1 rounded-full text-sm">CSS</span>
-    <span class="bg-blue-200 text-blue-800 px-3 py-1 rounded-full text-sm">JavaScript</span>
-    <span class="bg-blue-200 text-blue-800 px-3 py-1 rounded-full text-sm">PHP</span>
-  </div>
-  <a href="#" class="inline-block text-blue-600 hover:underline font-semibold mr-4">View Documentation →</a>
-  <a href="https://github.com/pawanbhandaree/" target="_blank" class="inline-block text-blue-600 hover:underline font-semibold">View Code & Preview →</a>
+        <section id="education" class="container mx-auto px-6 py-20 section-bg-pattern" data-aos="fade-up">
+            <h2 class="text-5xl font-extrabold text-center mb-12 text-gray-900 gradient-text">Academic Journey</h2>
+            <div class="bg-white rounded-3xl p-12 shadow-2xl border border-blue-200 max-w-5xl mx-auto hover-lift">
+                <div class="relative space-y-10 pl-8 md:pl-16">
+
+                    <div class="timeline-item relative" data-aos="fade-right">
+                        <h3 class="text-2xl font-bold text-blue-700">Bachelor of Computer Application (BCA)</h3>
+                        <p class="text-lg text-gray-700">Tribhuvan University - Mechi Multiple Campus, Bhadrapur, Jhapa, Nepal</p>
+                        <p class="text-sm italic text-gray-500">2022 - Present</p>
+                        <ul class="list-disc list-inside mt-2 space-y-1 text-base text-gray-700">
+                            <li>Strong foundation in Programming, Web Technologies (C, Java, Python), and Database Management.</li>
+                            <li>Focusing on modern development practices and Object-Oriented Programming (OOP).</li>
+                            <li>Building academic and personal projects in web development and software applications.</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-item relative" data-aos="fade-right" data-aos-delay="150">
+                        <h3 class="text-2xl font-bold text-blue-700">High School +2 (Management)</h3>
+                        <p class="text-lg text-gray-700">National Examination Board (NEB) - Devi Secondary School, Birtamode, Jhapa, Nepal</p>
+                        <p class="text-sm italic text-gray-500">2019 - 2021</p>
+                        <ul class="list-disc list-inside mt-2 space-y-1 text-base text-gray-700">
+                            <li>Focused on subjects like Computer, Economics, and Accounting alongside core management courses.</li>
+                            <li>Strengthened analytical, financial, and organizational skills essential for higher studies.</li>
+                            <li>Built a strong foundation for pursuing IT and management-related careers.</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-item relative" data-aos="fade-right" data-aos-delay="300">
+                        <h3 class="text-2xl font-bold text-blue-700">Secondary Education (SEE)</h3>
+                        <p class="text-lg text-gray-700">National Examination Board (NEB) - Birendra Secondary School, Phungling, Taplejung, Nepal</p>
+                        <p class="text-sm italic text-gray-500">2018-2020</p>
+                        <ul class="list-disc list-inside mt-2 space-y-1 text-base text-gray-700">
+                            <li>Completed the School Leaving Certificate (SEE) with core subjects like English, Math, Science, and Social Studies.</li>
+                            <li>Gained fundamental knowledge of grammar, problem-solving, and scientific principles.</li>
+                            <li>Prepared academic base for higher secondary (+2) management program.</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-item relative" data-aos="fade-right" data-aos-delay="450">
+                        <h3 class="text-2xl font-bold text-blue-700">Basic Education (Grade 1 - 8)</h3>
+                        <p class="text-lg text-gray-700">Delight Model Academy, Phungling, Taplejung, Nepal</p>
+                        <p class="text-sm italic text-gray-500">2012 - 2018</p>
+                        <ul class="list-disc list-inside mt-2 space-y-1 text-base text-gray-700">
+                            <li>Studied a balanced curriculum covering English, Nepali, Mathematics, Science, and Social Studies.</li>
+                            <li>Built early skills in reading, writing, and logical reasoning.</li>
+                            <li>Actively participated in extra-curricular and creative activities during school life.</li>
+                        </ul>
+                    </div>
+
+                    <div class="timeline-item relative" data-aos="fade-right" data-aos-delay="600">
+                        <h3 class="text-2xl font-bold text-blue-700">Primary Schooling</h3>
+                        <p class="text-lg text-gray-700">Simle Basic School, Meringden (Khamlung), Taplejung, Nepal</p>
+                        <p class="text-sm italic text-gray-500">2009 - 2011</p>
+                        <ul class="list-disc list-inside mt-2 space-y-1 text-base text-gray-700">
+                            <li>Received foundational education in language, numbers, and general awareness.</li>
+                            <li>Developed interest in studies and curiosity towards technology and learning.</li>
+                            <li>Laid the groundwork for further academic growth.</li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <hr class="border-gray-300 w-1/2 mx-auto my-16 opacity-70" data-aos="fade-in">
+
+        <section id="skills" class="container mx-auto px-6 py-20 section-bg-pattern" data-aos="fade-up">
+            <h2 class="text-5xl font-extrabold text-center mb-12 text-gray-900 gradient-text">Technical Arsenal</h2>
+            <div class="bg-white rounded-3xl p-12 shadow-2xl border border-blue-200 max-w-5xl mx-auto hover-lift">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <div data-aos="zoom-in">
+                        <h3 class="text-2xl font-bold text-blue-700 mb-6 pb-3 border-b-2 border-blue-200">Programming Languages</h3>
+                        <ul class="space-y-4 text-lg">
+                            <li class="flex items-center space-x-4 text-gray-700"><i class="fas fa-terminal text-blue-600 text-xl"></i><span>C & C# <strong class="font-semibold">(Fundamentals)</strong></span></li>
+                            <li class="flex items-center space-x-4 text-gray-700"><i class="fab fa-js-square text-yellow-500 text-xl"></i><span>JavaScript <strong class="font-semibold">(Basics)</strong></span></li>
+                            <li class="flex items-center space-x-4 text-gray-700"><i class="fab fa-python text-blue-500 text-xl"></i><span>Python <strong class="font-semibold">(Basics & OOP)</strong></span></li>
+                        </ul>
+                    </div>
+                    <div data-aos="zoom-in" data-aos-delay="200">
+                        <h3 class="text-2xl font-bold text-blue-700 mb-6 pb-3 border-b-2 border-blue-200">Web & Database</h3>
+                        <ul class="space-y-4 text-lg">
+                            <li class="flex items-center space-x-4 text-gray-700"><i class="fab fa-html5 text-orange-600 text-xl"></i><span>HTML5 & <i class="fab fa-css3-alt text-blue-500"></i> CSS3</span></li>
+                            <li class="flex items-center space-x-4 text-gray-700"><i class="fas fa-database text-blue-600 text-xl"></i><span>MySQL & <strong class="font-semibold">SQL Querying</strong></span></li>
+                            <li class="flex items-center space-x-4 text-gray-700"><i class="fas fa-sitemap text-red-500 text-xl"></i><span>Data Structures & Algorithms <strong class="font-semibold">(Basic)</strong></span></li>
+                        </ul>
+                    </div>
+                  <div data-aos="zoom-in" data-aos-delay="400">
+  <h3 class="text-2xl font-bold text-blue-700 mb-6 pb-3 border-b-2 border-blue-200">
+    Basic Knowledge & Tools
+  </h3>
+
+  <ul class="space-y-4 text-lg">
+
+    <li class="flex items-center space-x-4 text-gray-700">
+      <i class="fas fa-code-branch text-purple-600 text-xl"></i>
+      <span>
+        Git & GitHub <strong class="font-semibold">(Version Control)</strong>
+      </span>
+    </li>
+
+    <li class="flex items-center space-x-4 text-gray-700">
+      <i class="fas fa-cubes text-green-600 text-xl"></i>
+      <span>
+        Object-Oriented Programming <strong class="font-semibold">(OOP)</strong>
+      </span>
+    </li>
+
+    <li class="flex items-center space-x-4 text-gray-700">
+      <i class="fas fa-drafting-compass text-teal-600 text-xl"></i>
+      <span>Project Documentation & System Design</span>
+    </li>
+
+    <li class="flex items-center space-x-4 text-gray-700">
+      <i class="fas fa-file-word text-blue-600 text-xl"></i>
+      <span>Microsoft Office Tools (Word, Excel, PowerPoint)</span>
+    </li>
+
+  </ul>
 </div>
 
+                </div>
             </div>
         </section>
-<!-- Tutorials & Notes Section -->
-<section id="tutorials" class="container mx-auto px-6 py-20">
-  <h2 class="text-4xl font-bold text-center mb-8">Coding, Tutorials & Notes</h2>
-  <div class="bg-white rounded-2xl p-8 shadow-md border border-gray-200 max-w-6xl mx-auto">
-    <p class="text-lg text-gray-600 text-center leading-relaxed mb-8">
-      As a BCA student, I believe in sharing knowledge. This section is dedicated to providing simplified tutorials and key notes on programming and core BCA subjects for fellow students, from high school to university level.
-    </p>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <hr class="border-gray-300 w-1/2 mx-auto my-16 opacity-70" data-aos="fade-in">
 
-      <!-- Tutorial Card 1 -->
-      <div class="bg-gray-50 rounded-lg p-6 shadow-sm border border-gray-200">
-        <h3 class="text-xl font-semibold text-gray-900 mb-2">Web Development</h3>
-        <p class="text-gray-600 text-sm mb-4">Beginner-friendly guide on building websites using HTML, CSS, and JavaScript. Covers layouts, responsive design, and modern best practices for aspiring web developers.</p>
-        <a href="#" class="text-blue-600 hover:underline font-medium text-sm">Read Notes →</a>
-      </div>
+        <section id="contact" class="container mx-auto px-6 py-20 bg-gradient-to-r from-blue-700 to-purple-800 text-white rounded-3xl shadow-2xl section-bg-pattern relative overflow-hidden" data-aos="fade-up">
+            <div class="text-center max-w-5xl mx-auto relative z-10">
+                <h2 class="text-5xl font-extrabold mb-5">Let's Connect & Collaborate!</h2>
+                <p class="text-xl mb-14 opacity-90">
+                  Feel free to ask me anything !
+                </p>
 
-      <!-- Tutorial Card 2 -->
-      <div class="bg-gray-50 rounded-lg p-6 shadow-sm border border-gray-200">
-        <h3 class="text-xl font-semibold text-gray-900 mb-2">Python Fundamentals</h3>
-        <p class="text-gray-600 text-sm mb-4">Core notes on Python basics including variables, loops, functions, file handling, and an introduction to Object-Oriented Programming.</p>
-        <a href="#" class="text-blue-600 hover:underline font-medium text-sm">Read Notes →</a>
-      </div>
+                <div class="bg-white p-10 rounded-2xl shadow-xl text-gray-800 border-b-4 border-blue-500" data-aos="zoom-in">
+                    <h3 class="text-3xl font-bold mb-8 text-blue-700">Send Me a Message</h3>
+                    <form action="YOUR_FORM_SUBMISSION_ENDPOINT" method="POST" class="space-y-7">
+                        <input type="text" placeholder="Your Name " required class="w-full p-4 border border-gray-300 rounded-lg text-lg focus:ring-blue-500 focus:border-blue-500 transition-colors shadow-sm">
+                        <input type="email" placeholder="Your Email " required class="w-full p-4 border border-gray-300 rounded-lg text-lg focus:ring-blue-500 focus:border-blue-500 transition-colors shadow-sm">
+                        <textarea placeholder="Your Message " rows="6" required class="w-full p-4 border border-gray-300 rounded-lg text-lg focus:ring-blue-500 focus:border-blue-500 transition-colors shadow-sm"></textarea>
+                        <button type="submit" class="w-full px-8 py-4 bg-gradient-to-r from-red-600 to-pink-600 text-white font-bold text-xl rounded-lg hover:from-red-700 hover:to-pink-700 transition-colors shadow-lg btn-glow transform hover:scale-105">
+                            Send Message <i class="fas fa-paper-plane ml-3"></i>
+                        </button>
+                    </form>
+                </div>
 
-      <!-- Tutorial Card 3 -->
-      <div class="bg-gray-50 rounded-lg p-6 shadow-sm border border-gray-200">
-        <h3 class="text-xl font-semibold text-gray-900 mb-2">C# & .NET Concepts</h3>
-        <p class="text-gray-600 text-sm mb-4">C# programming with .NET framework: classes, objects, inheritance, interfaces, and building small applications with Visual Studio.</p>
-        <a href="#" class="text-blue-600 hover:underline font-medium text-sm">Read Notes →</a>
-      </div>
-
-      <!-- Tutorial Card 4 -->
-      <div class="bg-gray-50 rounded-lg p-6 shadow-sm border border-gray-200">
-        <h3 class="text-xl font-semibold text-gray-900 mb-2">Database & Networking Concepts</h3>
-        <p class="text-gray-600 text-sm mb-4">Covers ER diagrams, SQL queries, normalization, transactions, and relational database design principles as well as brief introduction of 7 layers of OSI model for the requriement of Information Technology.</p>
-        <a href="#" class="text-blue-600 hover:underline font-medium text-sm">Read Notes →</a>
-      </div>
-
-      <!-- Tutorial Card 5 -->
-      <div class="bg-gray-50 rounded-lg p-6 shadow-sm border border-gray-200">
-        <h3 class="text-xl font-semibold text-gray-900 mb-2">Financial Accounting & Statistics</h3>
-        <p class="text-gray-600 text-sm mb-4">Summarized notes on accounting principles, journal entries, balance sheets, probability, hypothesis testing, and data interpretation.</p>
-        <a href="#" class="text-blue-600 hover:underline font-medium text-sm">Read Notes →</a>
-      </div>
-
-      <!-- Tutorial Card 6 -->
-      <div class="bg-gray-50 rounded-lg p-6 shadow-sm border border-gray-200">
-        <h3 class="text-xl font-semibold text-gray-900 mb-2">Numerical Methods</h3>
-        <p class="text-gray-600 text-sm mb-4">Covers Newton-Raphson, Bisection, Iterative methods, interpolation, numerical integration, and solving differential equations with step-by-step examples.</p>
-        <a href="#" class="text-blue-600 hover:underline font-medium text-sm">Read Notes →</a>
-      </div>
-
-      <!-- Tutorial Card 7 -->
-      <div class="bg-gray-50 rounded-lg p-6 shadow-sm border border-gray-200">
-        <h3 class="text-xl font-semibold text-gray-900 mb-2">Management, E-Commerce & Cryptography</h3>
-        <p class="text-gray-600 text-sm mb-4">Notes on principles of management, MIS, online business strategies, encryption, digital signatures, and security fundamentals.</p>
-        <a href="#" class="text-blue-600 hover:underline font-medium text-sm">Read Notes →</a>
-      </div>
-
-      <!-- Tutorial Card 8 -->
-      <div class="bg-gray-50 rounded-lg p-6 shadow-sm border border-gray-200">
-        <h3 class="text-xl font-semibold text-gray-900 mb-2">System Analysis & Design, Project Documentation</h3>
-        <p class="text-gray-600 text-sm mb-4">Explains SDLC, DFD, UML diagrams, feasibility analysis, and guidelines for writing project reports and documentation for academic projects.</p>
-        <a href="#" class="text-blue-600 hover:underline font-medium text-sm">Read Notes →</a>
-      </div>
-
-      <!-- Tutorial Card 9 -->
-      <div class="bg-gray-50 rounded-lg p-6 shadow-sm border border-gray-200">
-        <h3 class="text-xl font-semibold text-gray-900 mb-2">Society & Technology, Economics Concepts</h3>
-        <p class="text-gray-600 text-sm mb-4">Covers IT impact on society, ethical issues, ICT trends, plus micro and macroeconomics concepts including demand, supply, and national income.</p>
-        <a href="#" class="text-blue-600 hover:underline font-medium text-sm">Read Notes →</a>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="container mx-auto px-6 py-20">
-            <h2 class="text-4xl font-bold text-center mb-8">Contact Me</h2>
-            <div class="bg-white rounded-2xl p-8 sm:p-12 shadow-md border border-gray-200 max-w-xl w-full mx-auto text-center">
-                <p class="text-lg text-gray-600 mb-6">Let's connect! I'm always open to new opportunities and collaborations.</p>
-
-                <!-- Client-side Contact Form -->
-                <form id="contactForm" class="text-left">
-                    <div class="space-y-4">
-                        <div>
-                            <label for="name" class="block text-gray-700 font-semibold mb-1">Your Name</label>
-                            <input type="text" id="name" name="name" required
-                                   class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors">
-                        </div>
-                        <div>
-                            <label for="email" class="block text-gray-700 font-semibold mb-1">Your Email</label>
-                            <input type="email" id="email" name="email" required
-                                   class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors">
-                        </div>
-                        <div>
-                            <label for="message" class="block text-gray-700 font-semibold mb-1">Your Message</label>
-                            <textarea id="message" name="message" rows="4" required
-                                      class="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"></textarea>
-                        </div>
-                    </div>
-                    <button type="submit" class="w-full mt-6 p-4 text-white bg-blue-600 rounded-md font-semibold hover:bg-blue-700 transition-colors shadow-md">
-                        <span id="submitText">Send Message</span>
-                        <span id="loadingSpinner" class="spinner hidden"></span>
-                    </button>
-                    <p id="formStatus" class="mt-4 text-center hidden"></p>
-                </form>
-
-                <!-- Social Media Links (as a fallback or alternative) -->
-                <div class="mt-8">
-                    <p class="text-sm text-gray-500 mb-4">Or connect with me on social media:</p>
-                    <div class="grid grid-cols-2 gap-4">
-                        <a href="https://www.facebook.com/pawan.bhandari.94214" target="_blank" class="flex items-center justify-center p-4 bg-gray-200 rounded-lg text-gray-700 hover:text-white transition-colors hover:bg-[#1877F2]">
-                            <i class="fab fa-facebook-f text-lg mr-2"></i> Facebook
-                        </a>
-                        <a href="https://www.instagram.com/pawan.vashishtha_official" target="_blank" class="flex items-center justify-center p-4 bg-gray-200 rounded-lg text-gray-700 hover:text-white transition-colors hover:bg-[#E4405F]">
-                            <i class="fab fa-instagram text-lg mr-2"></i> Instagram
-                        </a>
-                        <a href="https://linkedin.com/comm/mynetwork/discovery-see-all?usecase=PEOPLE_FOLLOWS&followMember=pawan-bhandari-30b597311 " target="_blank" class="flex items-center justify-center p-4 bg-gray-200 rounded-lg text-gray-700 hover:text-white transition-colors hover:bg-[#0A66C2]">
-                            <i class="fab fa-linkedin-in text-lg mr-2"></i> LinkedIn
-                        </a>
-                        <a href="https://wa.me/+9779804989691" target="_blank" class="flex items-center justify-center p-4 bg-gray-200 rounded-lg text-gray-700 hover:text-white transition-colors hover:bg-[#25D366]">
-                            <i class="fab fa-whatsapp text-lg mr-2"></i> WhatsApp
-                        </a>
+                <div class="mt-16">
+                    <h3 class="text-3xl font-bold mb-7">Connect with Me Socially:</h3>
+                    <div class="flex justify-center space-x-10">
+                        <a href="https://www.linkedin.com/in/pawanbhandaree" target="_blank" class="text-5xl text-blue-300 hover:text-white transition-all duration-300 social-icon-hover" data-aos="flip-left" data-aos-delay="100"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/PawanBhandaree" target="_blank" class="text-5xl text-gray-300 hover:text-white transition-all duration-300 social-icon-hover" data-aos="flip-left" data-aos-delay="200"><i class="fab fa-github"></i></a>
+                        <a href="https://facebook.com/PawanBhandaree" target="_blank" class="text-5xl text-blue-600 hover:text-white transition-all duration-300 social-icon-hover" data-aos="flip-left" data-aos-delay="300"><i class="fab fa-facebook"></i></a>
+                        <a href="https://instagram.com/pawanbhandaree" target="_blank" class="text-5xl text-pink-500 hover:text-white transition-all duration-300 social-icon-hover" data-aos="flip-left" data-aos-delay="400"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
 
             </div>
+            <div class="absolute inset-0 bg-black opacity-10 rounded-3xl pointer-events-none"></div>
         </section>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-gray-200 py-6 text-center text-sm text-gray-500">
-        <p>&copy; Personal Blog 2025 || Pawan Bhandaree. All Rights Reserved !</p>
-    </footer>
-
-    <script>
-        document.getElementById('contactForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Stop the default form submission
-
-            const form = event.target;
-            const submitButton = form.querySelector('button[type="submit"]');
-            const submitText = document.getElementById('submitText');
-            const loadingSpinner = document.getElementById('loadingSpinner');
-            const formStatus = document.getElementById('formStatus');
-
-            // Show loading state
-            submitText.classList.add('hidden');
-            loadingSpinner.classList.remove('hidden');
-            submitButton.disabled = true;
-            formStatus.classList.add('hidden');
-
-            // Simulate a network request delay
-            setTimeout(() => {
-                // Update the status message and styling
-                formStatus.textContent = "Thank you for your message! I'll get back to you soon.";
-                formStatus.classList.remove('hidden');
-                formStatus.classList.add('text-green-600', 'font-semibold');
-                
-                // Reset the form fields
-                form.reset();
-
-                // Reset the button state
-                submitText.classList.remove('hidden');
-                loadingSpinner.classList.add('hidden');
-                submitButton.disabled = false;
-            }, 1500); // Wait for 1.5 seconds to simulate submission
-        });
-    </script>
-</body>
-</html>
-  
+    <footer class="bg-gray-950 text-gray-300 py-10 text-center border-t border-gray-800" data-aos="fade-up">
+        <div class="container mx-auto px-6">
+            <p class="text-lg mb-3">&copy; <span id="currentYear"></span> Pawan Bhandaree. All Rights Reserved. </p>
+            <p class="text-base">Developed with passion & aspiration in Nepal. <i class="fas fa-heart text-red-500 mx-1"></i></p>
+            <div class="mt-6 flex justify-center space-x-4 text-sm">
+                <a href="#home" class="text-gray-400 hover:text-blue-400 transition-colors">Privacy Policy</a>
+                <span>|</span>
+                <a href="#home" class="text-gray-400 hover:text-blue-400 transition-colors">Terms</a>
