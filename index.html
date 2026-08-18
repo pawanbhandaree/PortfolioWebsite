@@ -17,7 +17,7 @@
 
     <!-- Tailwind + Fonts -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
 
@@ -66,17 +66,10 @@
         }
 
         .glass {
-            background: rgba(255, 255, 255, 0.70);
+            background: rgba(255, 255, 255, 0.72);
             backdrop-filter: blur(16px);
             -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.30);
-        }
-
-        .glass-dark {
-            background: rgba(15, 15, 35, 0.75);
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.35);
         }
 
         .hover-lift {
@@ -237,6 +230,72 @@
             color: #fff !important;
         }
 
+        /* ── SOCIAL ICON FIX ── */
+        .social-icon-wrapper {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.80);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.40);
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            font-size: 24px;
+            text-decoration: none;
+        }
+        .social-icon-wrapper:hover {
+            transform: translateY(-6px) scale(1.08);
+            box-shadow: 0 16px 40px rgba(79, 70, 229, 0.20);
+        }
+        .social-icon-wrapper.linkedin {
+            color: #0a66c2;
+            background: rgba(10, 102, 194, 0.08);
+            border-color: rgba(10, 102, 194, 0.15);
+        }
+        .social-icon-wrapper.linkedin:hover {
+            background: #0a66c2;
+            color: #fff;
+        }
+        .social-icon-wrapper.github {
+            color: #1b1f24;
+            background: rgba(27, 31, 36, 0.06);
+            border-color: rgba(27, 31, 36, 0.10);
+        }
+        .social-icon-wrapper.github:hover {
+            background: #1b1f24;
+            color: #fff;
+        }
+        .social-icon-wrapper.facebook {
+            color: #1877f2;
+            background: rgba(24, 119, 242, 0.08);
+            border-color: rgba(24, 119, 242, 0.15);
+        }
+        .social-icon-wrapper.facebook:hover {
+            background: #1877f2;
+            color: #fff;
+        }
+        .social-icon-wrapper.instagram {
+            color: #e4405f;
+            background: rgba(228, 64, 95, 0.08);
+            border-color: rgba(228, 64, 95, 0.15);
+        }
+        .social-icon-wrapper.instagram:hover {
+            background: #e4405f;
+            color: #fff;
+        }
+        .social-icon-wrapper.whatsapp {
+            color: #25d366;
+            background: rgba(37, 211, 102, 0.08);
+            border-color: rgba(37, 211, 102, 0.15);
+        }
+        .social-icon-wrapper.whatsapp:hover {
+            background: #25d366;
+            color: #fff;
+        }
+
         /* ── RESPONSIVE ── */
         @media (max-width: 768px) {
             .timeline-dot {
@@ -247,17 +306,17 @@
             .timeline-line {
                 left: 5px;
             }
+            .social-icon-wrapper {
+                width: 48px;
+                height: 48px;
+                font-size: 20px;
+            }
         }
 
         /* ── SELECTION ── */
         ::selection {
             background: #7c3aed;
             color: #fff;
-        }
-
-        /* ── NO INSPECT ── */
-        .no-inspect {
-            pointer-events: none;
         }
     </style>
 </head>
@@ -318,6 +377,7 @@
                 <div class="hidden md:flex items-center gap-8 font-medium text-sm uppercase tracking-wide">
                     <a href="#home" class="text-gray-700 hover:text-indigo-600 transition-colors duration-300 relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-indigo-600 after:transition-all hover:after:w-full">Home</a>
                     <a href="#about" class="text-gray-700 hover:text-indigo-600 transition-colors duration-300 relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-indigo-600 after:transition-all hover:after:w-full">About</a>
+                    <a href="#aspiration" class="text-gray-700 hover:text-indigo-600 transition-colors duration-300 relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-indigo-600 after:transition-all hover:after:w-full">Aspiration</a>
                     <a href="#projects" class="text-gray-700 hover:text-indigo-600 transition-colors duration-300 relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-indigo-600 after:transition-all hover:after:w-full">Projects</a>
                     <a href="#skills" class="text-gray-700 hover:text-indigo-600 transition-colors duration-300 relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-indigo-600 after:transition-all hover:after:w-full">Skills</a>
                     <a href="#education" class="text-gray-700 hover:text-indigo-600 transition-colors duration-300 relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-indigo-600 after:transition-all hover:after:w-full">Education</a>
@@ -386,10 +446,37 @@
             push myself to explore modern technologies.
         </p>
         <div class="mt-6 p-5 rounded-2xl bg-indigo-50/60 border border-indigo-100">
-            <p class="text-lg text-gray-800 leading-relaxed nepali-text font-medium">
+            <p class="text-lg text-gray-800 leading-relaxed font-medium">
                 <i class="fas fa-quote-left text-indigo-400 mr-2"></i>
                 म आधुनिक प्रविधिको प्रयोगमा विश्वास राख्दछु। डिजिटल संसारमा वास्तविक चुनौतीहरूलाई
                 सम्बोधन गर्ने व्यावहारिक समाधानहरू सिर्जना गर्नु नै मेरो मुख्य लक्ष्य हो।
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ─── ASPIRATION (Technical + Non-Technical) ─── -->
+<section id="aspiration" class="container mx-auto px-6 py-20 bg-gradient-to-r from-blue-100 to-purple-100 section-bg-pattern rounded-3xl shadow-lg" data-aos="fade-up">
+    <h2 class="text-4xl md:text-5xl font-extrabold text-center mb-12 text-blue-800 gradient-text">My Long-Term Aspiration</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+        <!-- Technical -->
+        <div class="bg-white rounded-2xl p-8 shadow-xl border-t-4 border-blue-600 hover:shadow-2xl transform transition-transform hover:-translate-y-2 hover-lift" data-aos="zoom-in">
+            <div class="flex items-center space-x-4 mb-4">
+                <i class="fas fa-laptop-code text-4xl text-blue-600 floating"></i>
+                <h3 class="text-2xl font-bold text-gray-800">Technical Trajectory (IT Sector)</h3>
+            </div>
+            <p class="text-lg text-gray-600 leading-relaxed">
+                To work as an <strong>IT Officer</strong> and <strong>Lecturer</strong> and also contribute to the development of reliable and user-friendly IT systems within government and educational institutions. My goal is to use my BCA knowledge to design and improve digital systems that support public services and academic environments.
+            </p>
+        </div>
+        <!-- Non-Technical / Civil Service -->
+        <div class="bg-white rounded-2xl p-8 shadow-xl border-t-4 border-red-600 hover:shadow-2xl transform transition-transform hover:-translate-y-2 hover-lift" data-aos="zoom-in" data-aos-delay="200">
+            <div class="flex items-center space-x-4 mb-4">
+                <i class="fas fa-university text-4xl text-red-600 floating"></i>
+                <h3 class="text-2xl font-bold text-gray-800">Civil Service Dream (Non-IT Sector)</h3>
+            </div>
+            <p class="text-lg text-gray-600 leading-relaxed">
+                नेपालको <strong>निजामती सेवा (Civil Service)</strong> मा प्रवेश गरी देशको प्रशासन र विकासमा योगदान पुर्याउने बलियो आकांक्षा छ। IT र व्यवस्थापनको ज्ञानलाई सार्वजनिक सेवाको दक्षता वृद्धिका लागि उपयोग गर्नु मेरो प्रमुख लक्ष्य हो।
             </p>
         </div>
     </div>
@@ -404,7 +491,7 @@
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
 
-        <!-- Project 1 -->
+        <!-- Project 1: Nepyatra -->
         <a href="https://nepyatra.com" target="_blank" rel="noopener noreferrer" class="project-card glass p-8 shadow-xl border border-white/40 hover:shadow-2xl group" data-aos="zoom-in" data-aos-delay="100">
             <div class="flex items-center gap-4 mb-4">
                 <div class="w-14 h-14 rounded-2xl gradient-bg flex items-center justify-center text-white text-2xl shadow-lg card-icon">
@@ -426,7 +513,7 @@
             </div>
         </a>
 
-        <!-- Project 2 -->
+        <!-- Project 2: Mero Radio -->
         <a href="https://fm.nepyatra.com" target="_blank" rel="noopener noreferrer" class="project-card glass p-8 shadow-xl border border-white/40 hover:shadow-2xl group" data-aos="zoom-in" data-aos-delay="200">
             <div class="flex items-center gap-4 mb-4">
                 <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-pink-500 to-rose-500 flex items-center justify-center text-white text-2xl shadow-lg card-icon">
@@ -448,7 +535,7 @@
             </div>
         </a>
 
-        <!-- Project 3 -->
+        <!-- Project 3: Bahradashi -->
         <a href="https://agent.nepyatra.com" target="_blank" rel="noopener noreferrer" class="project-card glass p-8 shadow-xl border border-white/40 hover:shadow-2xl group" data-aos="zoom-in" data-aos-delay="300">
             <div class="flex items-center gap-4 mb-4">
                 <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center text-white text-2xl shadow-lg card-icon">
@@ -648,39 +735,34 @@
             </button>
         </form>
 
-        <!-- Social -->
+        <!-- Social — icons now display perfectly with brand colors -->
         <div class="mt-12 text-center">
             <h3 class="text-xl font-bold text-gray-800 mb-6">Connect Socially</h3>
-            <div class="flex flex-wrap justify-center gap-6">
-                <a href="https://linkedin.com/in/pawan-bhandari-30b597311" target="_blank"
-                class="w-14 h-14 rounded-2xl bg-indigo-100 text-indigo-600 flex items-center justify-center text-2xl shadow-md hover:bg-indigo-600 hover:text-white hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-                <i class="fab fa-linkedin-in"></i>
-            </a>
-            <a href="https://github.com/pawanbhandaree" target="_blank"
-            class="w-14 h-14 rounded-2xl bg-gray-100 text-gray-700 flex items-center justify-center text-2xl shadow-md hover:bg-gray-800 hover:text-white hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-            <i class="fab fa-github"></i>
-        </a>
-        <a href="https://facebook.com/pawan.bhandari.94214" target="_blank"
-        class="w-14 h-14 rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center text-2xl shadow-md hover:bg-blue-600 hover:text-white hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-        <i class="fab fa-facebook-f"></i>
-    </a>
-    <a href="https://instagram.com/pawan.vashishtha_official" target="_blank"
-    class="w-14 h-14 rounded-2xl bg-pink-100 text-pink-500 flex items-center justify-center text-2xl shadow-md hover:bg-pink-600 hover:text-white hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-    <i class="fab fa-instagram"></i>
-</a>
-<a href="https://wa.me/9779804989691" target="_blank"
-class="w-14 h-14 rounded-2xl bg-green-100 text-green-500 flex items-center justify-center text-2xl shadow-md hover:bg-green-600 hover:text-white hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-<i class="fab fa-whatsapp"></i>
-</a>
-</div>
-<p class="mt-6 text-gray-600 text-sm">
-    <i class="fas fa-envelope text-indigo-500 mr-2"></i>
-    <a href="mailto:pawanvashishtha000@gmail.com" class="text-indigo-600 hover:underline font-medium">
-        pawanvashishtha000@gmail.com
-    </a>
-</p>
-</div>
-</div>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="https://linkedin.com/in/pawan-bhandari-30b597311" target="_blank" class="social-icon-wrapper linkedin" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com/pawanbhandaree" target="_blank" class="social-icon-wrapper github" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://facebook.com/pawan.bhandari.94214" target="_blank" class="social-icon-wrapper facebook" aria-label="Facebook">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://instagram.com/pawan.vashishtha_official" target="_blank" class="social-icon-wrapper instagram" aria-label="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://wa.me/9779804989691" target="_blank" class="social-icon-wrapper whatsapp" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+            <p class="mt-6 text-gray-600 text-sm">
+                <i class="fas fa-envelope text-indigo-500 mr-2"></i>
+                <a href="mailto:pawanvashishtha000@gmail.com" class="text-indigo-600 hover:underline font-medium">
+                    pawanvashishtha000@gmail.com
+                </a>
+            </p>
+        </div>
+    </div>
 </div>
 </section>
 
