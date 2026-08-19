@@ -296,6 +296,28 @@
             color: #fff;
         }
 
+        /* ── INTERESTS CARDS ── */
+        .interest-card {
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border-radius: 24px;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+            text-align: center;
+        }
+        .interest-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(79, 70, 229, 0.15);
+            background: rgba(255, 255, 255, 0.85);
+        }
+        .interest-icon {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+        }
+
         /* ── RESPONSIVE ── */
         @media (max-width: 768px) {
             .timeline-dot {
@@ -378,6 +400,7 @@
                     <a href="#home" class="text-gray-700 hover:text-indigo-600 transition-colors duration-300 relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-indigo-600 after:transition-all hover:after:w-full">Home</a>
                     <a href="#about" class="text-gray-700 hover:text-indigo-600 transition-colors duration-300 relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-indigo-600 after:transition-all hover:after:w-full">About</a>
                     <a href="#aspiration" class="text-gray-700 hover:text-indigo-600 transition-colors duration-300 relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-indigo-600 after:transition-all hover:after:w-full">Aspiration</a>
+                    <a href="#interests" class="text-gray-700 hover:text-indigo-600 transition-colors duration-300 relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-indigo-600 after:transition-all hover:after:w-full">Interests</a>
                     <a href="#projects" class="text-gray-700 hover:text-indigo-600 transition-colors duration-300 relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-indigo-600 after:transition-all hover:after:w-full">Projects</a>
                     <a href="#skills" class="text-gray-700 hover:text-indigo-600 transition-colors duration-300 relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-indigo-600 after:transition-all hover:after:w-full">Skills</a>
                     <a href="#education" class="text-gray-700 hover:text-indigo-600 transition-colors duration-300 relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-indigo-600 after:transition-all hover:after:w-full">Education</a>
@@ -400,7 +423,7 @@
                         <!-- Left -->
                         <div class="md:w-1/2 text-center md:text-left" data-aos="fade-right">
                             <p class="inline-block px-4 py-1.5 text-xs font-semibold tracking-widest uppercase rounded-full bg-indigo-100 text-indigo-700 mb-4 pulse-ring">
-                                <i class="fas fa-code mr-2"></i> Web Laravel Developer
+                                <i class="fas fa-code mr-2"></i> Web Developer
                             </p>
                             <h1 class="text-5xl sm:text-6xl md:text-7xl font-extrabold leading-[1.1] tracking-tight text-gray-900">
                                 Pawan <br /><span class="gradient-text">Bhandari</span>
@@ -416,7 +439,7 @@
                             </a>
                             <a href="#projects"
                             class="px-8 py-3.5 text-base font-bold text-indigo-700 bg-white/60 backdrop-blur rounded-full border border-indigo-200 shadow-md hover:shadow-xl transition-all duration-300 hover:bg-white flex items-center gap-3">
-                            <i class="fas fa-rocket"></i> View Projects
+                             View Projects
                         </a>
                     </div>
                 </div>
@@ -455,30 +478,101 @@
     </div>
 </section>
 
-<!-- ─── ASPIRATION (Technical + Non-Technical) ─── -->
+<!-- ─── ASPIRATION (Technical + Non-Technical + Social) ─── -->
 <section id="aspiration" class="container mx-auto px-6 py-20 bg-gradient-to-r from-blue-100 to-purple-100 section-bg-pattern rounded-3xl shadow-lg" data-aos="fade-up">
     <h2 class="text-4xl md:text-5xl font-extrabold text-center mb-12 text-blue-800 gradient-text">My Long-Term Aspiration</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
         <!-- Technical -->
         <div class="bg-white rounded-2xl p-8 shadow-xl border-t-4 border-blue-600 hover:shadow-2xl transform transition-transform hover:-translate-y-2 hover-lift" data-aos="zoom-in">
             <div class="flex items-center space-x-4 mb-4">
                 <i class="fas fa-laptop-code text-4xl text-blue-600 floating"></i>
-                <h3 class="text-2xl font-bold text-gray-800">Technical Trajectory (IT Sector)</h3>
+                <h3 class="text-2xl font-bold text-gray-800">Technical Trajectory</h3>
             </div>
             <p class="text-lg text-gray-600 leading-relaxed">
-                To work as an <strong>IT Officer</strong> and <strong>Lecturer</strong> and also contribute to the development of reliable and user-friendly IT systems within government and educational institutions. My goal is to use my BCA knowledge to design and improve digital systems that support public services and academic environments.
+                To work as an <strong>IT Officer</strong> and <strong>Lecturer</strong> and contribute to the development of reliable and user-friendly IT systems within government and educational institutions.
             </p>
         </div>
-        <!-- Non-Technical / Civil Service -->
-        <div class="bg-white rounded-2xl p-8 shadow-xl border-t-4 border-red-600 hover:shadow-2xl transform transition-transform hover:-translate-y-2 hover-lift" data-aos="zoom-in" data-aos-delay="200">
+
+        <!-- Civil Service -->
+        <div class="bg-white rounded-2xl p-8 shadow-xl border-t-4 border-red-600 hover:shadow-2xl transform transition-transform hover:-translate-y-2 hover-lift" data-aos="zoom-in" data-aos-delay="150">
             <div class="flex items-center space-x-4 mb-4">
                 <i class="fas fa-university text-4xl text-red-600 floating"></i>
-                <h3 class="text-2xl font-bold text-gray-800">Civil Service Dream (Non-IT Sector)</h3>
+                <h3 class="text-2xl font-bold text-gray-800">Civil Service Dream</h3>
             </div>
             <p class="text-lg text-gray-600 leading-relaxed">
                 नेपालको <strong>निजामती सेवा (Civil Service)</strong> मा प्रवेश गरी देशको प्रशासन र विकासमा योगदान पुर्याउने बलियो आकांक्षा छ। IT र व्यवस्थापनको ज्ञानलाई सार्वजनिक सेवाको दक्षता वृद्धिका लागि उपयोग गर्नु मेरो प्रमुख लक्ष्य हो।
             </p>
         </div>
+
+        <!-- Social Work (new) -->
+        <div class="bg-white rounded-2xl p-8 shadow-xl border-t-4 border-green-600 hover:shadow-2xl transform transition-transform hover:-translate-y-2 hover-lift" data-aos="zoom-in" data-aos-delay="300">
+            <div class="flex items-center space-x-4 mb-4">
+                <i class="fas fa-hand-holding-heart text-4xl text-green-600 floating"></i>
+                <h3 class="text-2xl font-bold text-gray-800">Social Contribution</h3>
+            </div>
+            <p class="text-lg text-gray-600 leading-relaxed">
+                <strong>समाजिक कार्य (Social Work)</strong> मा सक्रिय भई समाजको विकासमा योगदान दिन चाहन्छु। IT र प्रशासनिक ज्ञानलाई समाजसेवामा उपयोग गरी ग्रामीण क्षेत्रमा डिजिटल साक्षरता, स्वास्थ्य, शिक्षा र रोजगारीका लागि काम गर्ने लक्ष्य छ।
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<!-- ─── INTERESTS & PASSIONS ─── -->
+<section id="interests" class="container mx-auto px-6 py-20" data-aos="fade-up">
+    <h2 class="text-4xl md:text-5xl font-extrabold text-center mb-4 gradient-text">My Interests &amp; Passions</h2>
+    <p class="text-center text-gray-600 text-lg mb-12 max-w-2xl mx-auto">
+        Things that make me smile, dream and keep life colourful.
+    </p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+
+        <!-- Travel -->
+        <div class="interest-card" data-aos="flip-left" data-aos-delay="100">
+            <div class="interest-icon">🏔️</div>
+            <h3 class="text-2xl font-bold text-gray-800">Exploring Nepal</h3>
+            <p class="text-gray-600 mt-2 text-sm leading-relaxed">
+                I love travelling across Nepal—from the Himalayas to the Terai. Every destination tells a story and I want to experience them all.
+            </p>
+        </div>
+
+        <!-- Singing & Dancing -->
+        <div class="interest-card" data-aos="flip-left" data-aos-delay="200">
+            <div class="interest-icon">🎤💃</div>
+            <h3 class="text-2xl font-bold text-gray-800">Singing &amp; Dancing</h3>
+            <p class="text-gray-600 mt-2 text-sm leading-relaxed">
+                Music is my escape. Whether it's singing my heart out or moving to the rhythm, I find joy and energy in every beat.
+            </p>
+        </div>
+
+        <!-- Memes & Humor -->
+        <div class="interest-card" data-aos="flip-left" data-aos-delay="300">
+            <div class="interest-icon">😂</div>
+            <h3 class="text-2xl font-bold text-gray-800">Memes &amp; Humor</h3>
+            <p class="text-gray-600 mt-2 text-sm leading-relaxed">
+                A good meme can turn any day around. I appreciate witty humour and believe laughter is the best medicine.
+            </p>
+        </div>
+
+        <!-- Civil Service (already in aspiration but also an interest) -->
+        <div class="interest-card" data-aos="flip-left" data-aos-delay="400">
+            <div class="interest-icon">🏛️</div>
+            <h3 class="text-2xl font-bold text-gray-800">Civil Service Aspiration</h3>
+            <p class="text-gray-600 mt-2 text-sm leading-relaxed">
+                Serving the nation through civil service is not just a career goal—it's a deep passion to contribute to Nepal's progress.
+            </p>
+        </div>
+
+        <!-- Love & Life (Single & Open) -->
+        <div class="interest-card col-span-1 sm:col-span-2 lg:col-span-1" data-aos="flip-left" data-aos-delay="500">
+            <div class="interest-icon">❤️</div>
+            <h3 class="text-2xl font-bold text-gray-800">Love &amp; Life</h3>
+            <p class="text-gray-600 mt-2 text-sm leading-relaxed">
+                I am <strong>single</strong> and have never been in a relationship. I believe in natural connections—if someone shows genuine interest, I'm open to love. Until then, I'm enjoying my own company and focusing on my dreams.
+            </p>
+        </div>
+
     </div>
 </section>
 
@@ -505,7 +599,7 @@
             <h3 class="text-2xl font-bold text-gray-900">Nepyatra</h3>
             <p class="text-gray-600 text-sm font-medium mt-0.5">Pathivara Travels &amp; Tours</p>
             <p class="text-gray-500 text-sm mt-3 leading-relaxed">
-                A complete travel &amp; tour management platform with booking, itinerary planning, and package management.
+                A complete travel &amp; tour management platform with booking, itinerary planning and package management.
             </p>
             <div class="mt-5 flex items-center text-indigo-600 font-semibold text-sm">
                 <span>Visit Site</span>
@@ -527,7 +621,7 @@
             <h3 class="text-2xl font-bold text-gray-900">Mero Radio</h3>
             <p class="text-gray-600 text-sm font-medium mt-0.5">105 MHz</p>
             <p class="text-gray-500 text-sm mt-3 leading-relaxed">
-                Online radio streaming platform with live broadcast, show schedules, and listener engagement features.
+                Online radio streaming platform with live broadcast, show schedules and listener engagement features.
             </p>
             <div class="mt-5 flex items-center text-pink-600 font-semibold text-sm">
                 <span>Visit Site</span>
@@ -634,8 +728,8 @@
                     <p class="text-gray-700">Tribhuvan University — Mechi Multiple Campus, Bhadrapur, Jhapa</p>
                     <p class="text-sm text-gray-500 italic">2022 – Present · 7<sup>th</sup> Semester</p>
                     <ul class="mt-2 space-y-1 text-gray-600 text-sm list-disc list-inside">
-                        <li>Strong foundation in Web Technologies, DBMS, and OOP.</li>
-                        <li>Hands-on projects with Laravel, PHP, and MySQL.</li>
+                        <li>Strong foundation in Web Technologies, DBMS and OOP.</li>
+                        <li>Hands-on projects with Laravel, PHP and MySQL.</li>
                         <li>Building real-world web applications as academic &amp; personal projects.</li>
                     </ul>
                 </div>
