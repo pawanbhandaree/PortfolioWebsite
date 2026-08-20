@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pawan Bhandari — Web Developer | Portfolio</title>
-    <meta name="description" content="Pawan Bhandari — Web Developer & IT Student from Jhapa, Nepal. BCA student with a passion for Laravel and Civil Service." />
+    <meta name="description" content="Pawan Bhandari — Web Developer & IT Student from Jhapa, Nepal. BCA student specializing in Laravel." />
     <meta name="keywords" content="Pawan Bhandari, Web Developer, Laravel, IT Student, BCA, Nepal, Portfolio" />
     <meta name="author" content="Pawan Bhandari" />
     <meta name="robots" content="index, follow" />
@@ -32,7 +32,6 @@
             background: #f6f9fc;
             color: #1a1a2e;
             overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
             user-select: none;
             -webkit-user-select: none;
         }
@@ -71,8 +70,8 @@
             transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
         .hover-lift:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 30px 60px rgba(79, 70, 229, 0.18);
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px rgba(79, 70, 229, 0.15);
         }
 
         .btn-glow {
@@ -89,14 +88,14 @@
         }
         @keyframes float {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-12px); }
+            50% { transform: translateY(-10px); }
         }
 
         .pulse-ring {
             animation: pulse-ring 2.5s ease-in-out infinite;
         }
         @keyframes pulse-ring {
-            0% { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.35); }
+            0% { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.30); }
             70% { box-shadow: 0 0 0 20px rgba(79, 70, 229, 0); }
             100% { box-shadow: 0 0 0 0 rgba(79, 70, 229, 0); }
         }
@@ -106,7 +105,6 @@
             background-size: 40px;
         }
 
-        /* Hero */
         #home {
             position: relative;
             overflow: hidden;
@@ -117,92 +115,76 @@
             position: absolute;
             inset: 0;
             background:
-                radial-gradient(circle at 20% 50%, rgba(79, 70, 229, 0.10) 0%, transparent 60%),
-                radial-gradient(circle at 80% 20%, rgba(236, 72, 153, 0.08) 0%, transparent 50%),
-                radial-gradient(circle at 50% 80%, rgba(124, 58, 237, 0.06) 0%, transparent 50%);
+                radial-gradient(circle at 20% 50%, rgba(79, 70, 229, 0.08) 0%, transparent 60%),
+                radial-gradient(circle at 80% 20%, rgba(236, 72, 153, 0.06) 0%, transparent 50%),
+                radial-gradient(circle at 50% 80%, rgba(124, 58, 237, 0.05) 0%, transparent 50%);
             pointer-events: none;
             z-index: 0;
         }
         #home>* { position: relative; z-index: 1; }
 
-        /* Project Cards */
         .project-card {
-            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
             cursor: pointer;
-            position: relative;
-            overflow: hidden;
-            border-radius: 24px;
+            border-radius: 20px;
             background: rgba(255, 255, 255, 0.70);
-            backdrop-filter: blur(12px);
+            backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.40);
             padding: 1.75rem;
         }
-        .project-card::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(79, 70, 229, 0.05), rgba(236, 72, 153, 0.05));
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            pointer-events: none;
-            border-radius: 24px;
-        }
-        .project-card:hover::after { opacity: 1; }
         .project-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 24px 48px rgba(79, 70, 229, 0.14);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px rgba(79, 70, 229, 0.12);
             border-color: rgba(79, 70, 229, 0.20);
         }
         .project-card .card-icon {
-            transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            transition: transform 0.4s ease;
         }
         .project-card:hover .card-icon {
-            transform: scale(1.12) rotate(-4deg);
+            transform: scale(1.10) rotate(-3deg);
         }
         .project-card .arrow-icon {
             transition: transform 0.3s ease;
         }
         .project-card:hover .arrow-icon {
-            transform: translateX(6px) scale(1.1);
+            transform: translateX(6px);
         }
 
-        /* Timeline */
         .timeline-dot {
-            width: 16px;
-            height: 16px;
+            width: 14px;
+            height: 14px;
             border-radius: 50%;
             background: linear-gradient(135deg, #4f46e5, #7c3aed);
             border: 3px solid #fff;
-            box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.18);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.18);
             flex-shrink: 0;
-            margin-right: 20px;
+            margin-right: 18px;
             position: relative;
             z-index: 2;
         }
         .timeline-line {
             position: absolute;
-            left: 7px;
-            top: 24px;
-            bottom: -24px;
-            width: 3px;
+            left: 6px;
+            top: 22px;
+            bottom: -22px;
+            width: 2px;
             background: linear-gradient(to bottom, #4f46e5, #7c3aed, #ec4899);
             border-radius: 4px;
             opacity: 0.15;
         }
         .timeline-item:last-child .timeline-line { display: none; }
 
-        /* Skill Tags */
         .skill-tag {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            padding: 6px 18px;
+            gap: 6px;
+            padding: 5px 16px;
             border-radius: 40px;
             background: rgba(255, 255, 255, 0.70);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(79, 70, 229, 0.10);
+            backdrop-filter: blur(6px);
+            border: 1px solid rgba(79, 70, 229, 0.08);
             font-weight: 500;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             transition: all 0.3s ease;
             color: #1a1a2e;
         }
@@ -210,75 +192,67 @@
             background: #4f46e5;
             color: #fff;
             border-color: #4f46e5;
-            transform: translateY(-3px) scale(1.04);
-            box-shadow: 0 8px 24px rgba(79, 70, 229, 0.20);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(79, 70, 229, 0.18);
         }
         .skill-tag:hover i { color: #fff !important; }
 
-        /* Social Icons */
         .social-link {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 48px;
-            height: 48px;
-            border-radius: 14px;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
             background: rgba(255, 255, 255, 0.75);
             backdrop-filter: blur(6px);
             border: 1px solid rgba(255, 255, 255, 0.40);
             color: #1a1a2e;
-            transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            font-size: 1.2rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
         }
         .social-link:hover {
-            transform: translateY(-6px) scale(1.08);
+            transform: translateY(-4px);
             background: #4f46e5;
             color: #fff;
             border-color: #4f46e5;
-            box-shadow: 0 12px 32px rgba(79, 70, 229, 0.25);
+            box-shadow: 0 10px 28px rgba(79, 70, 229, 0.22);
         }
 
-        /* Interest Cards */
-        .interest-card {
-            padding: 1.5rem;
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.60);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.30);
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            text-align: center;
-        }
-        .interest-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 48px rgba(79, 70, 229, 0.10);
-            background: rgba(255, 255, 255, 0.85);
-            border-color: rgba(79, 70, 229, 0.15);
-        }
-        .interest-icon { font-size: 2.8rem; display: inline-block; margin-bottom: 0.5rem; }
-
-        /* Aspiration Cards */
         .aspiration-card {
-            padding: 2rem;
-            border-radius: 20px;
+            padding: 1.75rem;
+            border-radius: 18px;
             background: #fff;
-            border-top: 5px solid #4f46e5;
-            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border-top: 4px solid #4f46e5;
+            transition: all 0.4s ease;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.03);
         }
         .aspiration-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 48px rgba(79, 70, 229, 0.10);
+            transform: translateY(-4px);
+            box-shadow: 0 16px 40px rgba(79, 70, 229, 0.08);
         }
 
+        .interest-card {
+            padding: 1.25rem;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.60);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.30);
+            transition: all 0.4s ease;
+            text-align: center;
+        }
+        .interest-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(79, 70, 229, 0.08);
+            background: rgba(255, 255, 255, 0.85);
+            border-color: rgba(79, 70, 229, 0.12);
+        }
+        .interest-icon { font-size: 2.4rem; display: inline-block; margin-bottom: 0.4rem; }
+
         @media (max-width: 768px) {
-            .timeline-dot {
-                width: 12px;
-                height: 12px;
-                margin-right: 14px;
-            }
+            .timeline-dot { width: 12px; height: 12px; margin-right: 14px; }
             .timeline-line { left: 5px; }
-            .social-link { width: 42px; height: 42px; font-size: 1rem; }
+            .social-link { width: 40px; height: 40px; font-size: 1rem; }
         }
 
         ::selection {
@@ -293,9 +267,9 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({
-            duration: 900,
+            duration: 800,
             once: true,
-            offset: 70,
+            offset: 60,
             easing: 'ease-out-cubic'
         });
 
@@ -314,20 +288,20 @@
 
     <!-- HEADER -->
     <header class="fixed top-0 left-0 w-full z-50 glass shadow-sm border-b border-white/30">
-        <nav class="container mx-auto px-6 py-3.5 flex justify-between items-center">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
             <a href="#home" class="flex items-center gap-2.5" data-aos="fade-right">
-                <img src="https://placehold.co/44x44/4f46e5/ffffff?text=PB" alt="PB"
+                <img src="https://placehold.co/42x42/4f46e5/ffffff?text=PB" alt="PB"
                 class="h-10 w-auto rounded-full shadow-md floating border-2 border-white/60" />
                 <span class="text-xl font-extrabold tracking-tight gradient-text">Pawan Bhandari</span>
             </a>
-            <div class="flex items-center gap-5">
+            <div class="flex items-center gap-4">
                 <div class="hidden md:flex items-center gap-6 text-sm font-medium">
-                    <a href="#home" class="text-gray-600 hover:text-indigo-600 transition-colors relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-indigo-600 after:transition-all hover:after:w-full">Home</a>
-                    <a href="#about" class="text-gray-600 hover:text-indigo-600 transition-colors relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-indigo-600 after:transition-all hover:after:w-full">About</a>
-                    <a href="#aspiration" class="text-gray-600 hover:text-indigo-600 transition-colors relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-indigo-600 after:transition-all hover:after:w-full">Aspiration</a>
-                    <a href="#projects" class="text-gray-600 hover:text-indigo-600 transition-colors relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-indigo-600 after:transition-all hover:after:w-full">Projects</a>
-                    <a href="#skills" class="text-gray-600 hover:text-indigo-600 transition-colors relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-indigo-600 after:transition-all hover:after:w-full">Skills</a>
-                    <a href="#education" class="text-gray-600 hover:text-indigo-600 transition-colors relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:w-0 after:h-[2px] after:bg-indigo-600 after:transition-all hover:after:w-full">Education</a>
+                    <a href="#home" class="text-gray-600 hover:text-indigo-600 transition-colors">Home</a>
+                    <a href="#about" class="text-gray-600 hover:text-indigo-600 transition-colors">About</a>
+                    <a href="#aspiration" class="text-gray-600 hover:text-indigo-600 transition-colors">Aspiration</a>
+                    <a href="#projects" class="text-gray-600 hover:text-indigo-600 transition-colors">Projects</a>
+                    <a href="#skills" class="text-gray-600 hover:text-indigo-600 transition-colors">Skills</a>
+                    <a href="#education" class="text-gray-600 hover:text-indigo-600 transition-colors">Education</a>
                 </div>
                 <a href="#contact" class="px-5 py-2 text-sm font-semibold text-white rounded-full gradient-bg shadow-lg btn-glow transition-all duration-300">
                     <i class="fas fa-paper-plane mr-1.5"></i>Contact
@@ -352,7 +326,7 @@
                             </h1>
                             <p class="text-lg text-gray-600 max-w-lg mx-auto md:mx-0 mt-4 leading-relaxed border-l-4 border-indigo-500 pl-5">
                                 <strong>BCA 7<sup>th</sup> Semester</strong> · Mechi Multiple Campus<br />
-                                Building clean, scalable web solutions with <strong>Laravel</strong> &amp; modern tools.
+                                Building robust web solutions with <strong>Laravel</strong> &amp; modern tools.
                             </p>
                             <div class="flex flex-wrap justify-center md:justify-start gap-3 mt-7">
                                 <a href="Personal Profile pp.pdf" download class="px-7 py-3 text-sm font-semibold text-white rounded-full gradient-bg shadow-lg btn-glow transition-all duration-300 flex items-center gap-2">
@@ -363,9 +337,9 @@
                                 </a>
                             </div>
                         </div>
-                        <div class="md:w-1/2 flex justify-center" data-aos="fade-left" data-aos-delay="250">
+                        <div class="md:w-1/2 flex justify-center" data-aos="fade-left" data-aos-delay="200">
                             <div class="relative">
-                                <div class="absolute -inset-4 rounded-2xl bg-gradient-to-tr from-indigo-400 via-purple-400 to-pink-400 opacity-25 blur-2xl"></div>
+                                <div class="absolute -inset-4 rounded-2xl bg-gradient-to-tr from-indigo-400 via-purple-400 to-pink-400 opacity-20 blur-2xl"></div>
                                 <img src="pawan-bhandari.jpg" alt="Pawan Bhandari"
                                 class="relative rounded-xl w-full max-w-sm shadow-2xl border-4 border-white/70 object-cover" />
                             </div>
@@ -376,7 +350,7 @@
         </section>
 
         <!-- ABOUT -->
-        <section id="about" class="container mx-auto px-6 py-20 section-bg-pattern">
+        <section id="about" class="container mx-auto px-6 py-16 section-bg-pattern">
             <div class="max-w-4xl mx-auto glass rounded-3xl p-10 md:p-14 shadow-2xl border border-white/40 hover-lift" data-aos="fade-up">
                 <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-8 gradient-text">About Me</h2>
                 <p class="text-lg text-gray-700 leading-relaxed">
@@ -397,49 +371,51 @@
         </section>
 
         <!-- ASPIRATION -->
-        <section id="aspiration" class="container mx-auto px-6 py-20 bg-gradient-to-r from-blue-100 to-purple-100 section-bg-pattern rounded-3xl shadow-lg" data-aos="fade-up">
-            <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-10 gradient-text">My Aspiration</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <section id="aspiration" class="container mx-auto px-6 py-16 bg-gradient-to-r from-blue-100 to-purple-100 section-bg-pattern rounded-3xl shadow-lg">
+            <div class="max-w-6xl mx-auto" data-aos="fade-up">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-10 gradient-text">My Aspiration</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-                <div class="aspiration-card border-t-4 border-blue-600 hover-lift" data-aos="zoom-in">
-                    <div class="flex items-center gap-3 mb-3">
-                        <i class="fas fa-laptop-code text-2xl text-blue-600 floating"></i>
-                        <h3 class="text-xl font-bold text-gray-800">Technical</h3>
+                    <div class="aspiration-card border-t-4 border-blue-600 hover-lift" data-aos="zoom-in">
+                        <div class="flex items-center gap-3 mb-3">
+                            <i class="fas fa-laptop-code text-2xl text-blue-600"></i>
+                            <h3 class="text-xl font-bold text-gray-800">Technical</h3>
+                        </div>
+                        <p class="text-gray-600 leading-relaxed">
+                            Work as an <strong>IT Officer</strong> and <strong>Lecturer</strong>, contributing to
+                            reliable IT systems in government and education.
+                        </p>
                     </div>
-                    <p class="text-gray-600 leading-relaxed">
-                        Work as an <strong>IT Officer</strong> and <strong>Lecturer</strong>, contributing to
-                        reliable IT systems in government and education.
-                    </p>
-                </div>
 
-                <div class="aspiration-card border-t-4 border-red-600 hover-lift" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="flex items-center gap-3 mb-3">
-                        <i class="fas fa-university text-2xl text-red-600 floating"></i>
-                        <h3 class="text-xl font-bold text-gray-800">Civil Service</h3>
+                    <div class="aspiration-card border-t-4 border-red-600 hover-lift" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="flex items-center gap-3 mb-3">
+                            <i class="fas fa-university text-2xl text-red-600"></i>
+                            <h3 class="text-xl font-bold text-gray-800">Civil Service</h3>
+                        </div>
+                        <p class="text-gray-600 leading-relaxed">
+                            <strong>Primary goal:</strong> Join Nepal's Civil Service in administration or IT.
+                            Contribute to public policy, digital governance, and transparent service delivery.
+                            Use IT expertise to modernize government systems and processes.
+                        </p>
                     </div>
-                    <p class="text-gray-600 leading-relaxed">
-                        <strong>Primary goal:</strong> Join Nepal's Civil Service — contribute to public
-                        administration, policy, and digital governance. Use IT knowledge to enhance
-                        service delivery and transparency.
-                    </p>
-                </div>
 
-                <div class="aspiration-card border-t-4 border-green-600 hover-lift" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="flex items-center gap-3 mb-3">
-                        <i class="fas fa-hand-holding-heart text-2xl text-green-600 floating"></i>
-                        <h3 class="text-xl font-bold text-gray-800">Social Work</h3>
+                    <div class="aspiration-card border-t-4 border-green-600 hover-lift" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="flex items-center gap-3 mb-3">
+                            <i class="fas fa-hand-holding-heart text-2xl text-green-600"></i>
+                            <h3 class="text-xl font-bold text-gray-800">Social Work</h3>
+                        </div>
+                        <p class="text-gray-600 leading-relaxed">
+                            Contribute to <strong>social development</strong> — digital literacy, education,
+                            health awareness, and employment generation in rural communities.
+                        </p>
                     </div>
-                    <p class="text-gray-600 leading-relaxed">
-                        Actively contribute to <strong>social development</strong> — digital literacy,
-                        education, health, and employment in rural communities.
-                    </p>
-                </div>
 
+                </div>
             </div>
         </section>
 
         <!-- PROJECTS -->
-        <section id="projects" class="container mx-auto px-6 py-20" data-aos="fade-up">
+        <section id="projects" class="container mx-auto px-6 py-16" data-aos="fade-up">
             <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-4 gradient-text">Projects</h2>
             <p class="text-center text-gray-500 text-sm mb-10 max-w-lg mx-auto">
                 Click on any project to visit the live site.
@@ -448,7 +424,7 @@
 
                 <a href="https://nepyatra.com" target="_blank" rel="noopener noreferrer" class="project-card group" data-aos="zoom-in" data-aos-delay="100">
                     <div class="flex items-center gap-3 mb-3">
-                        <div class="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center text-white text-lg shadow-lg card-icon">
+                        <div class="w-11 h-11 rounded-xl gradient-bg flex items-center justify-center text-white text-lg shadow-md card-icon">
                             <i class="fas fa-plane"></i>
                         </div>
                         <div>
@@ -468,7 +444,7 @@
 
                 <a href="https://fm.nepyatra.com" target="_blank" rel="noopener noreferrer" class="project-card group" data-aos="zoom-in" data-aos-delay="200">
                     <div class="flex items-center gap-3 mb-3">
-                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-pink-500 to-rose-500 flex items-center justify-center text-white text-lg shadow-lg card-icon">
+                        <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-pink-500 to-rose-500 flex items-center justify-center text-white text-lg shadow-md card-icon">
                             <i class="fas fa-radio"></i>
                         </div>
                         <div>
@@ -488,7 +464,7 @@
 
                 <a href="https://agent.nepyatra.com" target="_blank" rel="noopener noreferrer" class="project-card group" data-aos="zoom-in" data-aos-delay="300">
                     <div class="flex items-center gap-3 mb-3">
-                        <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center text-white text-lg shadow-lg card-icon">
+                        <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-500 flex items-center justify-center text-white text-lg shadow-md card-icon">
                             <i class="fas fa-user-tie"></i>
                         </div>
                         <div>
@@ -510,7 +486,7 @@
         </section>
 
         <!-- SKILLS -->
-        <section id="skills" class="container mx-auto px-6 py-20 section-bg-pattern">
+        <section id="skills" class="container mx-auto px-6 py-16 section-bg-pattern">
             <div class="max-w-5xl mx-auto glass rounded-3xl p-10 md:p-14 shadow-2xl border border-white/40 hover-lift" data-aos="fade-up">
                 <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-10 gradient-text">Technical Skills</h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -564,7 +540,7 @@
         </section>
 
         <!-- EDUCATION -->
-        <section id="education" class="container mx-auto px-6 py-20 section-bg-pattern">
+        <section id="education" class="container mx-auto px-6 py-16 section-bg-pattern">
             <div class="max-w-4xl mx-auto glass rounded-3xl p-10 md:p-14 shadow-2xl border border-white/40 hover-lift" data-aos="fade-up">
                 <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-10 gradient-text">Education</h2>
                 <div class="space-y-8">
@@ -625,8 +601,69 @@
             </div>
         </section>
 
+        <!-- INTERESTS (minimal personal content, in English except Nepali parts) -->
+        <section id="interests" class="container mx-auto px-6 py-16" data-aos="fade-up">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-center mb-4 gradient-text">Interests &amp; Passions</h2>
+            <p class="text-center text-gray-500 text-sm mb-10 max-w-lg mx-auto">
+                Things that keep me inspired and grounded.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+
+                <div class="interest-card" data-aos="flip-left" data-aos-delay="100">
+                    <div class="interest-icon">🏔️</div>
+                    <h3 class="text-xl font-bold text-gray-800">Exploring Nepal</h3>
+                    <p class="text-gray-600 text-sm mt-1 leading-relaxed">
+                        I love travelling across Nepal — from the Himalayas to the Terai. Every destination has its own story.
+                    </p>
+                </div>
+
+                <div class="interest-card" data-aos="flip-left" data-aos-delay="200">
+                    <div class="interest-icon">🎵</div>
+                    <h3 class="text-xl font-bold text-gray-800">Music &amp; Dance</h3>
+                    <p class="text-gray-600 text-sm mt-1 leading-relaxed">
+                        Music is my escape. Singing and dancing keep me energized and connected to my culture.
+                    </p>
+                </div>
+
+                <div class="interest-card" data-aos="flip-left" data-aos-delay="300">
+                    <div class="interest-icon">😂</div>
+                    <h3 class="text-xl font-bold text-gray-800">Memes &amp; Humor</h3>
+                    <p class="text-gray-600 text-sm mt-1 leading-relaxed">
+                        A good meme can turn any day around. I believe laughter is the best medicine.
+                    </p>
+                </div>
+
+                <div class="interest-card" data-aos="flip-left" data-aos-delay="400">
+                    <div class="interest-icon">🤝</div>
+                    <h3 class="text-xl font-bold text-gray-800">Collaborative &amp; Social</h3>
+                    <p class="text-gray-600 text-sm mt-1 leading-relaxed">
+                        I enjoy working with people — listening, sharing ideas, and building meaningful relationships.
+                    </p>
+                </div>
+
+                <div class="interest-card col-span-1 sm:col-span-2 lg:col-span-1" data-aos="flip-left" data-aos-delay="500">
+                    <div class="interest-icon">❤️</div>
+                    <h3 class="text-xl font-bold text-gray-800">Family &amp; Life</h3>
+                    <p class="text-gray-600 text-sm mt-1 leading-relaxed">
+                        My family is everything — parents, grandparents, siblings — they are my foundation.
+                        I value a life partner who shares cultural values and a lifelong commitment.
+                        Currently single and open to a genuine connection.
+                    </p>
+                </div>
+
+                <div class="interest-card" data-aos="flip-left" data-aos-delay="600">
+                    <div class="interest-icon">🏍️</div>
+                    <h3 class="text-xl font-bold text-gray-800">Long Rides</h3>
+                    <p class="text-gray-600 text-sm mt-1 leading-relaxed">
+                        Long bike rides through Nepal's hills and villages bring me peace, freedom, and a sense of adventure.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
         <!-- CONTACT -->
-        <section id="contact" class="container mx-auto px-6 py-20">
+        <section id="contact" class="container mx-auto px-6 py-16">
             <div class="max-w-4xl mx-auto glass rounded-3xl p-10 md:p-14 shadow-2xl border border-white/40 relative overflow-hidden" data-aos="fade-up">
                 <div class="absolute -top-24 -right-24 w-64 h-64 rounded-full bg-indigo-200/20 blur-3xl pointer-events-none"></div>
                 <div class="absolute -bottom-24 -left-24 w-64 h-64 rounded-full bg-pink-200/20 blur-3xl pointer-events-none"></div>
@@ -685,7 +722,6 @@
 </footer>
 
 <script>
-    // Formspree form handling
     document.getElementById('contactForm').addEventListener('submit', function(e) {
         e.preventDefault();
         const form = this;
